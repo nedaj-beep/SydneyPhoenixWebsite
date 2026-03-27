@@ -1302,6 +1302,614 @@
     @media (max-width: 900px) {
       .pricing-grid { grid-template-columns: 1fr; max-width: 420px; }
     }
+
+    /* ─── 9. REVIEWS ───────────────────────────────────── */
+    #reviews {
+      background: var(--red);
+      padding: 96px 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #reviews::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 50% 80% at 0% 50%, rgba(255,255,255,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 80% at 100% 50%, rgba(255,255,255,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .reviews-header {
+      text-align: center;
+      margin-bottom: 52px;
+      padding: 0 24px;
+    }
+
+    .reviews-header .section-eyebrow { color: rgba(255,255,255,0.75); }
+    .reviews-header .section-title { color: #FFFFFF; }
+    .reviews-header .section-subtitle { color: rgba(255,255,255,0.75); }
+
+    /* Carousel track */
+    .carousel-wrapper {
+      position: relative;
+      /* fade edges */
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
+      mask-image: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 24px;
+      animation: carousel-scroll 40s linear infinite;
+      width: max-content;
+      padding: 8px 0 16px;
+    }
+
+    .carousel-track:hover { animation-play-state: paused; }
+
+    @keyframes carousel-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .review-card {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 28px 28px 24px;
+      width: 320px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 24px rgba(17,17,17,0.12), 0 1px 4px rgba(17,17,17,0.06);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .review-stars {
+      display: flex;
+      gap: 3px;
+      color: #F5A623;
+      font-size: 16px;
+    }
+
+    .review-quote {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14.5px;
+      line-height: 1.65;
+      color: #333;
+      flex: 1;
+      font-style: italic;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid #f0f0f0;
+      padding-top: 14px;
+    }
+
+    .review-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(232,52,42,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--red);
+      flex-shrink: 0;
+    }
+
+    .review-name {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: #111;
+    }
+
+    .review-suburb {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      color: #888;
+    }
+
+    /* ─── 10. CHECKLIST ────────────────────────────────── */
+    #checklist {
+      background: var(--grey);
+      padding: 96px 24px;
+    }
+
+    .checklist-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .checklist-column {
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: 32px 28px;
+      border: 1px solid #ececec;
+      box-shadow: 0 2px 8px rgba(17,17,17,0.04);
+    }
+
+    .checklist-col-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: #111;
+      margin: 0 0 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .checklist-col-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(232,52,42,0.09);
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .checklist-items {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+
+    .checklist-items li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    .check-bullet {
+      width: 18px;
+      height: 18px;
+      background: var(--red);
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .checklist-download-wrap {
+      text-align: center;
+      margin-top: 48px;
+    }
+
+    .btn-outline-red {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      border: 2px solid var(--red);
+      color: var(--red);
+      background: transparent;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 13px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.18s ease, color 0.18s ease, transform 0.15s ease;
+    }
+
+    .btn-outline-red:hover {
+      background: var(--red);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 860px) {
+      .checklist-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+    }
+
+    /* ─── 11. SERVICE AREAS ────────────────────────────── */
+    #areas {
+      background: #FFFFFF;
+      padding: 96px 24px;
+    }
+
+    .areas-pills {
+      max-width: 820px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .area-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 20px;
+      border-radius: 100px;
+      border: 1.5px solid #ddd;
+      background: #F7F7F7;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: #333;
+      cursor: default;
+      transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, transform 0.15s cubic-bezier(.34,1.56,.64,1);
+    }
+
+    .area-pill:hover {
+      background: var(--red);
+      border-color: var(--red);
+      color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+
+    .area-pill svg { flex-shrink: 0; transition: stroke 0.18s ease; }
+    .area-pill:hover svg { stroke: #FFFFFF; }
+
+    /* ─── 12. FAQ ──────────────────────────────────────── */
+    #faq {
+      background: var(--grey);
+      padding: 96px 24px;
+    }
+
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #e4e4e4;
+    }
+
+    .faq-item:first-child { border-top: 1px solid #e4e4e4; }
+
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 22px 0;
+      cursor: pointer;
+      user-select: none;
+      list-style: none;
+    }
+
+    .faq-question::-webkit-details-marker { display: none; }
+
+    .faq-question-text {
+      font-family: 'Syne', sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: #111;
+      line-height: 1.3;
+    }
+
+    .faq-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #ececec;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.2s ease, transform 0.3s cubic-bezier(.34,1.56,.64,1);
+    }
+
+    .faq-icon svg {
+      transition: transform 0.3s cubic-bezier(.34,1.56,.64,1);
+    }
+
+    details[open] .faq-icon {
+      background: var(--red);
+      transform: rotate(0deg);
+    }
+
+    details[open] .faq-icon svg {
+      stroke: #FFFFFF;
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      padding: 0 0 22px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #555;
+      max-width: 640px;
+    }
+
+    /* ─── 13. FINAL CTA ────────────────────────────────── */
+    #cta-final {
+      background: var(--red);
+      padding: 100px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #cta-final::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 120% at 50% 100%, rgba(255,255,255,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 60% at 10% 20%, rgba(255,255,255,0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .cta-inner {
+      position: relative;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .cta-heading {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(30px, 5vw, 52px);
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin: 0 0 18px;
+    }
+
+    .cta-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.6;
+      margin: 0 0 40px;
+    }
+
+    .cta-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      margin-bottom: 44px;
+    }
+
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #FFFFFF;
+      color: var(--red);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 14px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.18s ease, transform 0.15s cubic-bezier(.34,1.56,.64,1), box-shadow 0.18s ease;
+      box-shadow: 0 4px 20px rgba(17,17,17,0.20);
+    }
+
+    .btn-white:hover {
+      background: #f0f0f0;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(17,17,17,0.24);
+    }
+
+    .btn-white:active { transform: translateY(0); }
+
+    .btn-white-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: #FFFFFF;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 14px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 2px solid rgba(255,255,255,0.60);
+      cursor: pointer;
+      transition: background 0.18s ease, border-color 0.18s ease, transform 0.15s ease;
+    }
+
+    .btn-white-outline:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: #FFFFFF;
+      transform: translateY(-1px);
+    }
+
+    .cta-phone {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(28px, 4.5vw, 44px);
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: -0.02em;
+      text-decoration: none;
+      display: inline-block;
+      transition: opacity 0.18s ease;
+    }
+
+    .cta-phone:hover { opacity: 0.85; }
+
+    .cta-phone-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    /* ─── 14. FOOTER ───────────────────────────────────── */
+    #footer {
+      background: var(--charcoal);
+      padding: 72px 24px 0;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 56px;
+    }
+
+    .footer-logo-col {}
+
+    .footer-logo img {
+      height: 48px;
+      width: auto;
+      margin-bottom: 16px;
+      /* invert to show on dark bg */
+      filter: brightness(0) invert(1);
+      opacity: 0.92;
+    }
+
+    .footer-tagline {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.65;
+      margin: 0 0 24px;
+      max-width: 280px;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.10);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: background 0.18s ease, border-color 0.18s ease, transform 0.15s ease;
+    }
+
+    .social-icon:hover {
+      background: var(--red);
+      border-color: var(--red);
+      transform: translateY(-2px);
+    }
+
+    .footer-col-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin: 0 0 20px;
+    }
+
+    .footer-links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      transition: color 0.18s ease;
+    }
+
+    .footer-links a:hover { color: #FFFFFF; }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 14px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: rgba(255,255,255,0.60);
+      line-height: 1.5;
+    }
+
+    .footer-contact-item svg { flex-shrink: 0; margin-top: 2px; }
+
+    .footer-contact-item a {
+      color: rgba(255,255,255,0.60);
+      text-decoration: none;
+      transition: color 0.18s ease;
+    }
+
+    .footer-contact-item a:hover { color: #FFFFFF; }
+
+    .footer-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin: 0;
+    }
+
+    .footer-copyright {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-copyright p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+      margin: 0;
+    }
+
+    @media (max-width: 860px) {
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .cta-btns { flex-direction: column; align-items: center; }
+    }
   </style>
 </head>
 <body>
@@ -1799,6 +2407,498 @@
   </section>
 
   <!-- ══════════════════════════════════════════════════════
+       9. REVIEWS
+  ══════════════════════════════════════════════════════ -->
+  <section id="reviews" aria-labelledby="reviews-title">
+    <div class="reviews-header">
+      <div class="section-eyebrow">What Hosts Say</div>
+      <h2 class="section-title" id="reviews-title">Sydney Hosts Love Us</h2>
+      <p class="section-subtitle">Real reviews from real Airbnb hosts across Sydney.</p>
+    </div>
+
+    <div class="carousel-wrapper" aria-label="Customer reviews carousel">
+      <div class="carousel-track">
+
+        <!-- Card 1 -->
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Absolutely incredible service. They turned over my Bondi apartment in under 2 hours and my next guests gave me a 5-star review straight away. Couldn't be happier."</p>
+          <div class="review-author">
+            <div class="review-avatar">S</div>
+            <div>
+              <div class="review-name">Sarah M.</div>
+              <div class="review-suburb">Bondi</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"I manage 3 properties in Surry Hills and Phoenix handles all my turnovers. Same-day availability is a lifesaver when guests check out late. Highly recommend."</p>
+          <div class="review-author">
+            <div class="review-avatar">J</div>
+            <div>
+              <div class="review-name">James T.</div>
+              <div class="review-suburb">Surry Hills</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"The deep clean before our big summer season was exactly what we needed. Every corner spotless, linen done hotel-style. Guests keep commenting on how pristine the place is."</p>
+          <div class="review-author">
+            <div class="review-avatar">E</div>
+            <div>
+              <div class="review-name">Emma L.</div>
+              <div class="review-suburb">Mosman</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Finally found a cleaner that actually understands Airbnb. They know what guests look for, they restock everything perfectly, and they send photos after every clean. Game changer."</p>
+          <div class="review-author">
+            <div class="review-avatar">M</div>
+            <div>
+              <div class="review-name">Michael R.</div>
+              <div class="review-suburb">Newtown</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Our Manly beach house gets heavy use over weekends. Phoenix is always reliable, always on time, and always gets a 5-star cleanliness rating from our guests."</p>
+          <div class="review-author">
+            <div class="review-avatar">L</div>
+            <div>
+              <div class="review-name">Lisa K.</div>
+              <div class="review-suburb">Manly</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Used them for the first time after a long-stay guest and honestly it looked better than the day I bought the apartment. Worth every cent."</p>
+          <div class="review-author">
+            <div class="review-avatar">D</div>
+            <div>
+              <div class="review-name">David P.</div>
+              <div class="review-suburb">Pyrmont</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Duplicate set for seamless loop -->
+        <div class="review-card" aria-hidden="true">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Absolutely incredible service. They turned over my Bondi apartment in under 2 hours and my next guests gave me a 5-star review straight away. Couldn't be happier."</p>
+          <div class="review-author">
+            <div class="review-avatar">S</div>
+            <div>
+              <div class="review-name">Sarah M.</div>
+              <div class="review-suburb">Bondi</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card" aria-hidden="true">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"I manage 3 properties in Surry Hills and Phoenix handles all my turnovers. Same-day availability is a lifesaver when guests check out late. Highly recommend."</p>
+          <div class="review-author">
+            <div class="review-avatar">J</div>
+            <div>
+              <div class="review-name">James T.</div>
+              <div class="review-suburb">Surry Hills</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card" aria-hidden="true">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"The deep clean before our big summer season was exactly what we needed. Every corner spotless, linen done hotel-style. Guests keep commenting on how pristine the place is."</p>
+          <div class="review-author">
+            <div class="review-avatar">E</div>
+            <div>
+              <div class="review-name">Emma L.</div>
+              <div class="review-suburb">Mosman</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card" aria-hidden="true">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Finally found a cleaner that actually understands Airbnb. They know what guests look for, they restock everything perfectly, and they send photos after every clean. Game changer."</p>
+          <div class="review-author">
+            <div class="review-avatar">M</div>
+            <div>
+              <div class="review-name">Michael R.</div>
+              <div class="review-suburb">Newtown</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card" aria-hidden="true">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Our Manly beach house gets heavy use over weekends. Phoenix is always reliable, always on time, and always gets a 5-star cleanliness rating from our guests."</p>
+          <div class="review-author">
+            <div class="review-avatar">L</div>
+            <div>
+              <div class="review-name">Lisa K.</div>
+              <div class="review-suburb">Manly</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card" aria-hidden="true">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-quote">"Used them for the first time after a long-stay guest and honestly it looked better than the day I bought the apartment. Worth every cent."</p>
+          <div class="review-author">
+            <div class="review-avatar">D</div>
+            <div>
+              <div class="review-name">David P.</div>
+              <div class="review-suburb">Pyrmont</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       10. CHECKLIST
+  ══════════════════════════════════════════════════════ -->
+  <section id="checklist" aria-labelledby="checklist-title">
+    <div class="section-header">
+      <div class="section-eyebrow">Our Standards</div>
+      <h2 class="section-title" id="checklist-title">Every Clean. Every Time.</h2>
+      <p class="section-subtitle">Our 5-star checklist ensures nothing is missed — across every room, every visit.</p>
+    </div>
+
+    <div class="checklist-grid">
+
+      <!-- Kitchen -->
+      <div class="checklist-column">
+        <h3 class="checklist-col-title">
+          <div class="checklist-col-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="5" rx="1"/><path d="M4 8v11a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V8"/><path d="M10 12h4"/></svg>
+          </div>
+          Kitchen
+        </h3>
+        <ul class="checklist-items">
+          <li><span class="check-bullet"></span>Benchtops wiped and sanitised</li>
+          <li><span class="check-bullet"></span>Stovetop, oven and rangehood degreased</li>
+          <li><span class="check-bullet"></span>Sink scrubbed and polished</li>
+          <li><span class="check-bullet"></span>Microwave interior and exterior</li>
+          <li><span class="check-bullet"></span>Fridge exterior and handles</li>
+          <li><span class="check-bullet"></span>Rubbish removed, bins re-lined</li>
+        </ul>
+      </div>
+
+      <!-- Bathrooms -->
+      <div class="checklist-column">
+        <h3 class="checklist-col-title">
+          <div class="checklist-col-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="M4 12v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6"/><path d="M4 12V6c0-1.1.9-2 2-2h2a2 2 0 0 1 2 2v1"/></svg>
+          </div>
+          Bathrooms
+        </h3>
+        <ul class="checklist-items">
+          <li><span class="check-bullet"></span>Toilet scrubbed inside and out</li>
+          <li><span class="check-bullet"></span>Shower and bath tile scrub</li>
+          <li><span class="check-bullet"></span>Basin and taps polished</li>
+          <li><span class="check-bullet"></span>Mirror cleaned streak-free</li>
+          <li><span class="check-bullet"></span>Floors mopped and disinfected</li>
+          <li><span class="check-bullet"></span>Towels folded hotel-style</li>
+        </ul>
+      </div>
+
+      <!-- Bedrooms & Living -->
+      <div class="checklist-column">
+        <h3 class="checklist-col-title">
+          <div class="checklist-col-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          Bedrooms &amp; Living
+        </h3>
+        <ul class="checklist-items">
+          <li><span class="check-bullet"></span>Beds made with fresh linen</li>
+          <li><span class="check-bullet"></span>All surfaces dusted and wiped</li>
+          <li><span class="check-bullet"></span>Floors vacuumed and mopped</li>
+          <li><span class="check-bullet"></span>Windows and sills cleaned</li>
+          <li><span class="check-bullet"></span>Cushions fluffed, décor reset</li>
+          <li><span class="check-bullet"></span>Property photographed on completion</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="checklist-download-wrap">
+      <a href="#contact" class="btn-outline-red">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Full Checklist
+      </a>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       11. SERVICE AREAS
+  ══════════════════════════════════════════════════════ -->
+  <section id="areas" aria-labelledby="areas-title">
+    <div class="section-header">
+      <div class="section-eyebrow">Coverage</div>
+      <h2 class="section-title" id="areas-title">We Clean Across Sydney</h2>
+      <p class="section-subtitle">Serving hosts from Bondi to the North Shore — same-day availability across the inner city and beyond.</p>
+    </div>
+
+    <div class="areas-pills" role="list">
+      <span class="area-pill" role="listitem">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Bondi
+      </span>
+      <span class="area-pill" role="listitem">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Surry Hills
+      </span>
+      <span class="area-pill" role="listitem">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Newtown
+      </span>
+      <span class="area-pill" role="listitem">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Mosman
+      </span>
+      <span class="area-pill" role="listitem">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Manly
+      </span>
+      <span class="area-pill" role="listitem">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Pyrmont
+      </span>
+      <span class="area-pill" role="listitem">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Potts Point
+      </span>
+      <span class="area-pill" role="listitem">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Coogee
+      </span>
+      <span class="area-pill" role="listitem">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Randwick
+      </span>
+      <span class="area-pill" role="listitem">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        North Sydney
+      </span>
+      <span class="area-pill" role="listitem">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Chatswood
+      </span>
+      <span class="area-pill" role="listitem">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Glebe
+      </span>
+      <span class="area-pill" role="listitem">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Balmain
+      </span>
+      <span class="area-pill" role="listitem">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Paddington
+      </span>
+      <span class="area-pill" role="listitem">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        The Rocks
+      </span>
+      <span class="area-pill" role="listitem">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Neutral Bay
+      </span>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       12. FAQ
+  ══════════════════════════════════════════════════════ -->
+  <section id="faq" aria-labelledby="faq-title">
+    <div class="section-header">
+      <div class="section-eyebrow">Got Questions?</div>
+      <h2 class="section-title" id="faq-title">Frequently Asked Questions</h2>
+      <p class="section-subtitle">Everything you need to know about booking a clean with Sydney Phoenix.</p>
+    </div>
+
+    <div class="faq-list" role="list">
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-question-text">How quickly can you come after checkout?</span>
+          <div class="faq-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </summary>
+        <div class="faq-answer">We offer same-day bookings across Sydney. If you book before 10am, we can typically be there within a few hours of your guest's checkout. For regular hosts, we recommend scheduling recurring cleans in advance to lock in your preferred time slot.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-question-text">Do you restock supplies?</span>
+          <div class="faq-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </summary>
+        <div class="faq-answer">Yes! Our Restock &amp; Linen add-on covers toiletries (toilet paper, hand soap, shampoo, conditioner), fresh towels folded hotel-style, and bed linen changes. We also send a low-stock notification so you're never caught short before a check-in.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-question-text">What if a guest leaves the property in bad condition?</span>
+          <div class="faq-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </summary>
+        <div class="faq-answer">We'll contact you before starting if the property requires significantly more work than a standard turnover. We'll give you an honest quote for the extra time. We also photograph the property on arrival and departure so you have documentation for any Airbnb damage claims.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-question-text">Do I need to be there during the clean?</span>
+          <div class="faq-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </summary>
+        <div class="faq-answer">Not at all. Most of our hosts are completely remote. We handle key access via lockbox, building concierge, or key handover — whatever works for you. You'll receive a completion notification with photos when we're done.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-question-text">Can you manage multiple properties?</span>
+          <div class="faq-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </summary>
+        <div class="faq-answer">Absolutely — we work with property managers and hosts with 10+ listings. We can set up recurring schedules across multiple properties, sync with your Airbnb calendar, and provide a single invoice. Get in touch and we'll build a custom plan for your portfolio.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-question-text">Are cleaners insured and background-checked?</span>
+          <div class="faq-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </summary>
+        <div class="faq-answer">Yes. Every Sydney Phoenix cleaner is fully insured for public liability, has passed a police background check, and has been trained specifically for Airbnb and short-stay cleaning standards. Your property — and your guests — are in safe hands.</div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       13. FINAL CTA
+  ══════════════════════════════════════════════════════ -->
+  <section id="contact" aria-labelledby="cta-heading">
+    <div id="cta-final">
+      <div class="cta-inner">
+        <h2 class="cta-heading" id="cta-heading">Ready for Stress-Free<br />Airbnb Hosting?</h2>
+        <p class="cta-sub">Join 500+ Sydney hosts who trust Phoenix to keep their properties guest-ready. Book in minutes — no contracts, no lock-ins.</p>
+
+        <div class="cta-btns">
+          <a href="tel:+61450000000" class="btn-white">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17z"/></svg>
+            Call Us Now
+          </a>
+          <a href="mailto:hello@sydneyphoenixcleaning.com.au" class="btn-white-outline">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Send an Enquiry
+          </a>
+        </div>
+
+        <div class="cta-phone-label">Or call us directly</div>
+        <a href="tel:+61450000000" class="cta-phone">0450 000 000</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       14. FOOTER
+  ══════════════════════════════════════════════════════ -->
+  <footer id="footer" aria-label="Site footer">
+    <div class="footer-inner">
+
+      <!-- Col 1: Logo + tagline + social -->
+      <div class="footer-logo-col">
+        <a href="#" class="footer-logo" aria-label="Sydney Phoenix Cleaning">
+          <img src="brand_assets/IMG_8795.PNG" alt="Sydney Phoenix Cleaning" />
+        </a>
+        <p class="footer-tagline">Sydney's most trusted Airbnb cleaning service. We keep your property guest-ready, every single turnover.</p>
+        <div class="footer-socials" aria-label="Social media">
+          <!-- Instagram -->
+          <a href="#" class="social-icon" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <!-- Facebook -->
+          <a href="#" class="social-icon" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <!-- Email -->
+          <a href="mailto:hello@sydneyphoenixcleaning.com.au" class="social-icon" aria-label="Email us">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 2: Quick links -->
+      <div>
+        <div class="footer-col-title">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#checklist">Our Checklist</a></li>
+          <li><a href="#areas">Service Areas</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Book Now</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Contact -->
+      <div>
+        <div class="footer-col-title">Contact Us</div>
+        <div class="footer-contact-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 17z"/></svg>
+          <a href="tel:+61450000000">0450 000 000</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:hello@sydneyphoenixcleaning.com.au">hello@sydneyphoenixcleaning.com.au</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Mon–Sun: 7am – 7pm
+        </div>
+        <div class="footer-contact-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Sydney, NSW, Australia
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="footer-divider" />
+
+    <div class="footer-copyright">
+      <p>&copy; 2024 Sydney Phoenix Cleaning. All rights reserved.</p>
+      <p>ABN: 00 000 000 000 &nbsp;·&nbsp; Fully Insured &nbsp;·&nbsp; Background-Checked</p>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════════════════
        JAVASCRIPT
   ══════════════════════════════════════════════════════ -->
   <script>
@@ -1901,6 +3001,47 @@
 
     const statsSection = document.getElementById('stats');
     if (statsSection) statsObserver.observe(statsSection);
+
+    // ── FAQ accordion (smooth open/close) ────────────────
+    document.querySelectorAll('.faq-item').forEach(details => {
+      const summary = details.querySelector('.faq-question');
+      const answer  = details.querySelector('.faq-answer');
+
+      // Wrap answer content for animation
+      answer.style.overflow   = 'hidden';
+      answer.style.transition = 'max-height 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease, padding-bottom 0.35s ease';
+
+      function close(d) {
+        const ans = d.querySelector('.faq-answer');
+        ans.style.maxHeight    = '0px';
+        ans.style.opacity      = '0';
+        ans.style.paddingBottom = '0';
+        setTimeout(() => d.removeAttribute('open'), 350);
+      }
+
+      summary.addEventListener('click', e => {
+        e.preventDefault();
+        if (details.open) {
+          close(details);
+        } else {
+          // close all others
+          document.querySelectorAll('.faq-item[open]').forEach(other => {
+            if (other !== details) close(other);
+          });
+          details.setAttribute('open', '');
+          answer.style.maxHeight     = answer.scrollHeight + 'px';
+          answer.style.opacity       = '1';
+          answer.style.paddingBottom = '22px';
+        }
+      });
+
+      // Init closed state
+      if (!details.open) {
+        answer.style.maxHeight    = '0px';
+        answer.style.opacity      = '0';
+        answer.style.paddingBottom = '0';
+      }
+    });
 
     // ── Pricing toggle (10% off for Regular) ─────────────
     const pricingToggle = document.getElementById('pricing-toggle');
