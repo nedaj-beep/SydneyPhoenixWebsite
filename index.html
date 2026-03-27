@@ -93,57 +93,139 @@
       100% { transform: translateX(-50%); }
     }
 
-    /* ─── 2. NAVBAR ────────────────────────────────────── */
+    /* ─── 2. NAVBAR (Floating Pill — Component 3) ─────── */
     #navbar {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: #FFFFFF;
-      border-bottom: 1px solid #ececec;
-      transition: box-shadow 0.25s ease;
-    }
-
-    #navbar.scrolled {
-      box-shadow: 0 4px 24px rgba(17,17,17,0.10), 0 1px 4px rgba(232,52,42,0.06);
+      background: transparent;
+      padding: 10px 20px;
+      pointer-events: none; /* pass-through on padding area */
+      transition: padding 0.3s ease;
     }
 
     .nav-inner {
-      max-width: 1200px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 0 24px;
-      height: 68px;
+      padding: 0 8px 0 20px;
+      height: 62px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 12px;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 100px;
+      border: 1px solid rgba(17,17,17,0.08);
+      box-shadow: 0 4px 24px rgba(17,17,17,0.09), 0 1px 4px rgba(17,17,17,0.05);
+      pointer-events: all;
+      transition: box-shadow 0.3s ease, background 0.3s ease;
+    }
+
+    #navbar.scrolled .nav-inner {
+      box-shadow: 0 8px 36px rgba(17,17,17,0.14), 0 2px 8px rgba(232,52,42,0.07);
+      background: rgba(255,255,255,0.99);
     }
 
     .nav-logo img {
-      height: 48px;
+      height: 44px;
       width: auto;
       display: block;
     }
 
+    /* ── Glow Menu (Component 1) ── */
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: 4px;
       list-style: none;
       margin: 0;
       padding: 0;
     }
 
-    .nav-links a {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 15px;
-      font-weight: 500;
-      color: #111111;
-      text-decoration: none;
-      letter-spacing: -0.01em;
-      transition: color 0.18s ease;
+    /* Each nav item wrapper */
+    .nav-glow-item {
+      position: relative;
     }
 
-    .nav-links a:hover { color: var(--red); }
+    .nav-glow-link {
+      position: relative;
+      display: block;
+      perspective: 600px;
+      text-decoration: none;
+    }
+
+    /* Glow radial backdrop */
+    .nav-glow-bg {
+      position: absolute;
+      inset: 0;
+      border-radius: 10px;
+      opacity: 0;
+      transform: scale(0.8);
+      pointer-events: none;
+      transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .nav-glow-link:hover .nav-glow-bg,
+    .nav-glow-link:focus-visible .nav-glow-bg {
+      opacity: 1;
+      transform: scale(1.6);
+    }
+
+    /* Front face */
+    .nav-link-front {
+      display: flex;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: #111111;
+      transform-style: preserve-3d;
+      transform-origin: center bottom;
+      transition: transform 0.45s cubic-bezier(0.2, 0.9, 0.3, 1), opacity 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Back face (hidden, rotated 90deg up) */
+    .nav-link-back {
+      display: flex;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: #111111;
+      transform-style: preserve-3d;
+      transform-origin: center top;
+      transform: rotateX(90deg);
+      transition: transform 0.45s cubic-bezier(0.2, 0.9, 0.3, 1), opacity 0.3s ease;
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 1;
+    }
+
+    .nav-glow-link:hover .nav-link-front,
+    .nav-glow-link:focus-visible .nav-link-front {
+      transform: rotateX(-90deg);
+      opacity: 0;
+    }
+
+    .nav-glow-link:hover .nav-link-back,
+    .nav-glow-link:focus-visible .nav-link-back {
+      transform: rotateX(0deg);
+      opacity: 1;
+    }
+
+    /* Glow colours per nav item */
+    .glow-services  .nav-glow-bg { background: radial-gradient(circle, rgba(232,52,42,0.18) 0%, rgba(232,52,42,0.06) 50%, transparent 100%); }
+    .glow-pricing   .nav-glow-bg { background: radial-gradient(circle, rgba(249,115,22,0.18) 0%, rgba(234,88,12,0.06) 50%, transparent 100%); }
+    .glow-reviews   .nav-glow-bg { background: radial-gradient(circle, rgba(59,130,246,0.18) 0%, rgba(37,99,235,0.06) 50%, transparent 100%); }
+    .glow-faq       .nav-glow-bg { background: radial-gradient(circle, rgba(34,197,94,0.18) 0%, rgba(22,163,74,0.06) 50%, transparent 100%); }
 
     .nav-book-btn {
       display: inline-flex;
@@ -155,19 +237,21 @@
       font-weight: 600;
       letter-spacing: 0.01em;
       padding: 10px 22px;
-      border-radius: 6px;
+      border-radius: 100px;
       text-decoration: none;
       transition: background 0.18s ease, transform 0.15s ease, box-shadow 0.18s ease;
-      box-shadow: 0 2px 8px rgba(232,52,42,0.28);
+      box-shadow: 0 2px 10px rgba(232,52,42,0.32);
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .nav-book-btn:hover {
       background: var(--red-dark);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 16px rgba(232,52,42,0.36);
+      transform: translateY(-1px) scale(1.03);
+      box-shadow: 0 4px 18px rgba(232,52,42,0.40);
     }
 
-    .nav-book-btn:active { transform: translateY(0); }
+    .nav-book-btn:active { transform: translateY(0) scale(1); }
 
     /* Hamburger */
     .hamburger {
@@ -175,15 +259,16 @@
       flex-direction: column;
       gap: 5px;
       cursor: pointer;
-      padding: 4px;
+      padding: 4px 8px;
       background: none;
       border: none;
       outline: none;
+      margin-right: 6px;
     }
 
     .hamburger span {
       display: block;
-      width: 24px;
+      width: 22px;
       height: 2px;
       background: #111111;
       border-radius: 2px;
@@ -194,25 +279,47 @@
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    /* Mobile menu */
+    /* Mobile menu — slide in from right (Component 3 style) */
     #mobile-menu {
       display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
+      position: fixed;
+      inset: 0;
       background: #FFFFFF;
-      border-bottom: 1px solid #ececec;
-      box-shadow: 0 8px 32px rgba(17,17,17,0.10);
-      padding: 20px 24px 24px;
-      z-index: 99;
+      z-index: 200;
+      padding: 96px 32px 48px;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.25, 0.9, 0.3, 1), opacity 0.25s ease;
     }
 
-    #mobile-menu.open { display: block; }
+    #mobile-menu.open {
+      display: block;
+      pointer-events: all;
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .mobile-close-btn {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #111;
+      font-size: 22px;
+      padding: 0;
+    }
 
     #mobile-menu ul {
       list-style: none;
-      margin: 0 0 16px;
+      margin: 0 0 24px;
       padding: 0;
       display: flex;
       flex-direction: column;
@@ -221,10 +328,10 @@
 
     #mobile-menu ul a {
       display: block;
-      padding: 12px 0;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 16px;
-      font-weight: 500;
+      padding: 16px 0;
+      font-family: 'Syne', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
       color: #111111;
       text-decoration: none;
       border-bottom: 1px solid #f0f0f0;
@@ -239,16 +346,19 @@
       background: var(--red);
       color: #FFFFFF;
       font-family: 'DM Sans', sans-serif;
-      font-size: 15px;
-      font-weight: 600;
-      padding: 13px 24px;
-      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px 24px;
+      border-radius: 100px;
       text-decoration: none;
-      margin-top: 12px;
-      transition: background 0.18s ease;
+      margin-top: 16px;
+      transition: background 0.18s ease, transform 0.15s ease;
     }
 
-    .mobile-book-btn:hover { background: var(--red-dark); }
+    .mobile-book-btn:hover {
+      background: var(--red-dark);
+      transform: scale(1.02);
+    }
 
     @media (max-width: 768px) {
       .nav-links { display: none; }
@@ -1331,39 +1441,55 @@
     .reviews-header .section-title { color: #FFFFFF; }
     .reviews-header .section-subtitle { color: rgba(255,255,255,0.75); }
 
-    /* Carousel track */
-    .carousel-wrapper {
-      position: relative;
-      /* fade edges */
-      -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
-      mask-image: linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%);
-    }
-
-    .carousel-track {
+    /* Vertical testimonial columns (Component 2) */
+    .testimonials-columns-wrap {
       display: flex;
-      gap: 24px;
-      animation: carousel-scroll 40s linear infinite;
-      width: max-content;
-      padding: 8px 0 16px;
+      justify-content: center;
+      gap: 20px;
+      padding: 0 24px;
+      max-height: 640px;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
+      mask-image: linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%);
     }
 
-    .carousel-track:hover { animation-play-state: paused; }
-
-    @keyframes carousel-scroll {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+    .testimonial-col {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      flex-shrink: 0;
+      width: 300px;
     }
+
+    /* Each column's scroll animation at different speeds */
+    .testimonial-col-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      animation: scroll-up-col var(--col-duration, 18s) linear infinite;
+    }
+
+    .testimonial-col-inner:hover { animation-play-state: paused; }
+
+    @keyframes scroll-up-col {
+      0%   { transform: translateY(0); }
+      100% { transform: translateY(-50%); }
+    }
+
+    /* Col 2 hidden on tablet, col 3 hidden on mobile */
+    @media (max-width: 960px) { .testimonial-col:nth-child(3) { display: none; } }
+    @media (max-width: 640px) { .testimonial-col:nth-child(2) { display: none; } }
 
     .review-card {
       background: #FFFFFF;
       border-radius: 16px;
-      padding: 28px 28px 24px;
-      width: 320px;
-      flex-shrink: 0;
+      padding: 24px 24px 20px;
+      width: 100%;
       box-shadow: 0 4px 24px rgba(17,17,17,0.12), 0 1px 4px rgba(17,17,17,0.06);
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
+      flex-shrink: 0;
     }
 
     .review-stars {
@@ -1936,7 +2062,7 @@
   </div>
 
   <!-- ══════════════════════════════════════════════════════
-       2. NAVBAR
+       2. NAVBAR (Floating Pill + Glow Menu)
   ══════════════════════════════════════════════════════ -->
   <header id="navbar">
     <div class="nav-inner">
@@ -1945,14 +2071,40 @@
         <img src="brand_assets/IMG_8795.PNG" alt="Sydney Phoenix Cleaning logo" />
       </a>
 
-      <!-- Desktop links -->
+      <!-- Desktop links — Glow Menu (Component 1) -->
       <nav aria-label="Main navigation">
         <ul class="nav-links">
-          <li><a href="#services">Services</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#reviews">Reviews</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#contact" class="nav-book-btn">Book Now</a></li>
+          <li class="nav-glow-item glow-services">
+            <a href="#services" class="nav-glow-link">
+              <div class="nav-glow-bg"></div>
+              <div class="nav-link-front">Services</div>
+              <div class="nav-link-back">Services</div>
+            </a>
+          </li>
+          <li class="nav-glow-item glow-pricing">
+            <a href="#pricing" class="nav-glow-link">
+              <div class="nav-glow-bg"></div>
+              <div class="nav-link-front">Pricing</div>
+              <div class="nav-link-back">Pricing</div>
+            </a>
+          </li>
+          <li class="nav-glow-item glow-reviews">
+            <a href="#reviews" class="nav-glow-link">
+              <div class="nav-glow-bg"></div>
+              <div class="nav-link-front">Reviews</div>
+              <div class="nav-link-back">Reviews</div>
+            </a>
+          </li>
+          <li class="nav-glow-item glow-faq">
+            <a href="#faq" class="nav-glow-link">
+              <div class="nav-glow-bg"></div>
+              <div class="nav-link-front">FAQ</div>
+              <div class="nav-link-back">FAQ</div>
+            </a>
+          </li>
+          <li>
+            <a href="#contact" class="nav-book-btn">Book Now</a>
+          </li>
         </ul>
       </nav>
 
@@ -1964,15 +2116,16 @@
       </button>
     </div>
 
-    <!-- Mobile menu -->
-    <div id="mobile-menu" role="dialog" aria-label="Mobile navigation">
+    <!-- Mobile menu — slide-in overlay (Component 3 style) -->
+    <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+      <button class="mobile-close-btn" id="mobile-close-btn" aria-label="Close menu">✕</button>
       <ul>
         <li><a href="#services" class="mobile-nav-link">Services</a></li>
         <li><a href="#pricing" class="mobile-nav-link">Pricing</a></li>
         <li><a href="#reviews" class="mobile-nav-link">Reviews</a></li>
         <li><a href="#faq" class="mobile-nav-link">FAQ</a></li>
       </ul>
-      <a href="#contact" class="mobile-book-btn mobile-nav-link">Book Now</a>
+      <a href="#contact" class="mobile-book-btn mobile-nav-link">Book Now →</a>
     </div>
   </header>
 
@@ -2416,156 +2569,175 @@
       <p class="section-subtitle">Real reviews from real Airbnb hosts across Sydney.</p>
     </div>
 
-    <div class="carousel-wrapper" aria-label="Customer reviews carousel">
-      <div class="carousel-track">
+    <!-- 3-column vertical scroll (Component 2) -->
+    <div class="testimonials-columns-wrap" aria-label="Customer reviews">
 
-        <!-- Card 1 -->
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-quote">"Absolutely incredible service. They turned over my Bondi apartment in under 2 hours and my next guests gave me a 5-star review straight away. Couldn't be happier."</p>
-          <div class="review-author">
-            <div class="review-avatar">S</div>
-            <div>
-              <div class="review-name">Sarah M.</div>
-              <div class="review-suburb">Bondi</div>
+      <!-- Column 1 — 15s -->
+      <div class="testimonial-col">
+        <div class="testimonial-col-inner" style="--col-duration: 15s;">
+          <!-- real cards -->
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"Absolutely incredible service. They turned over my Bondi apartment in under 2 hours and my next guests gave me a 5-star review straight away."</p>
+            <div class="review-author">
+              <div class="review-avatar">S</div>
+              <div><div class="review-name">Sarah M.</div><div class="review-suburb">Bondi</div></div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"Our Manly beach house gets heavy use over weekends. Phoenix is always reliable, on time, and gets a 5-star cleanliness rating from our guests every time."</p>
+            <div class="review-author">
+              <div class="review-avatar">L</div>
+              <div><div class="review-name">Lisa K.</div><div class="review-suburb">Manly</div></div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"Used them for the first time after a long-stay guest and honestly it looked better than the day I bought the apartment. Worth every cent."</p>
+            <div class="review-author">
+              <div class="review-avatar">D</div>
+              <div><div class="review-name">David P.</div><div class="review-suburb">Pyrmont</div></div>
+            </div>
+          </div>
+          <!-- duplicate for seamless loop -->
+          <div class="review-card" aria-hidden="true">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"Absolutely incredible service. They turned over my Bondi apartment in under 2 hours and my next guests gave me a 5-star review straight away."</p>
+            <div class="review-author">
+              <div class="review-avatar">S</div>
+              <div><div class="review-name">Sarah M.</div><div class="review-suburb">Bondi</div></div>
+            </div>
+          </div>
+          <div class="review-card" aria-hidden="true">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"Our Manly beach house gets heavy use over weekends. Phoenix is always reliable, on time, and gets a 5-star cleanliness rating from our guests every time."</p>
+            <div class="review-author">
+              <div class="review-avatar">L</div>
+              <div><div class="review-name">Lisa K.</div><div class="review-suburb">Manly</div></div>
+            </div>
+          </div>
+          <div class="review-card" aria-hidden="true">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"Used them for the first time after a long-stay guest and honestly it looked better than the day I bought the apartment. Worth every cent."</p>
+            <div class="review-author">
+              <div class="review-avatar">D</div>
+              <div><div class="review-name">David P.</div><div class="review-suburb">Pyrmont</div></div>
             </div>
           </div>
         </div>
-
-        <!-- Card 2 -->
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-quote">"I manage 3 properties in Surry Hills and Phoenix handles all my turnovers. Same-day availability is a lifesaver when guests check out late. Highly recommend."</p>
-          <div class="review-author">
-            <div class="review-avatar">J</div>
-            <div>
-              <div class="review-name">James T.</div>
-              <div class="review-suburb">Surry Hills</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-quote">"The deep clean before our big summer season was exactly what we needed. Every corner spotless, linen done hotel-style. Guests keep commenting on how pristine the place is."</p>
-          <div class="review-author">
-            <div class="review-avatar">E</div>
-            <div>
-              <div class="review-name">Emma L.</div>
-              <div class="review-suburb">Mosman</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-quote">"Finally found a cleaner that actually understands Airbnb. They know what guests look for, they restock everything perfectly, and they send photos after every clean. Game changer."</p>
-          <div class="review-author">
-            <div class="review-avatar">M</div>
-            <div>
-              <div class="review-name">Michael R.</div>
-              <div class="review-suburb">Newtown</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-quote">"Our Manly beach house gets heavy use over weekends. Phoenix is always reliable, always on time, and always gets a 5-star cleanliness rating from our guests."</p>
-          <div class="review-author">
-            <div class="review-avatar">L</div>
-            <div>
-              <div class="review-name">Lisa K.</div>
-              <div class="review-suburb">Manly</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 6 -->
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-quote">"Used them for the first time after a long-stay guest and honestly it looked better than the day I bought the apartment. Worth every cent."</p>
-          <div class="review-author">
-            <div class="review-avatar">D</div>
-            <div>
-              <div class="review-name">David P.</div>
-              <div class="review-suburb">Pyrmont</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Duplicate set for seamless loop -->
-        <div class="review-card" aria-hidden="true">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-quote">"Absolutely incredible service. They turned over my Bondi apartment in under 2 hours and my next guests gave me a 5-star review straight away. Couldn't be happier."</p>
-          <div class="review-author">
-            <div class="review-avatar">S</div>
-            <div>
-              <div class="review-name">Sarah M.</div>
-              <div class="review-suburb">Bondi</div>
-            </div>
-          </div>
-        </div>
-        <div class="review-card" aria-hidden="true">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-quote">"I manage 3 properties in Surry Hills and Phoenix handles all my turnovers. Same-day availability is a lifesaver when guests check out late. Highly recommend."</p>
-          <div class="review-author">
-            <div class="review-avatar">J</div>
-            <div>
-              <div class="review-name">James T.</div>
-              <div class="review-suburb">Surry Hills</div>
-            </div>
-          </div>
-        </div>
-        <div class="review-card" aria-hidden="true">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-quote">"The deep clean before our big summer season was exactly what we needed. Every corner spotless, linen done hotel-style. Guests keep commenting on how pristine the place is."</p>
-          <div class="review-author">
-            <div class="review-avatar">E</div>
-            <div>
-              <div class="review-name">Emma L.</div>
-              <div class="review-suburb">Mosman</div>
-            </div>
-          </div>
-        </div>
-        <div class="review-card" aria-hidden="true">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-quote">"Finally found a cleaner that actually understands Airbnb. They know what guests look for, they restock everything perfectly, and they send photos after every clean. Game changer."</p>
-          <div class="review-author">
-            <div class="review-avatar">M</div>
-            <div>
-              <div class="review-name">Michael R.</div>
-              <div class="review-suburb">Newtown</div>
-            </div>
-          </div>
-        </div>
-        <div class="review-card" aria-hidden="true">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-quote">"Our Manly beach house gets heavy use over weekends. Phoenix is always reliable, always on time, and always gets a 5-star cleanliness rating from our guests."</p>
-          <div class="review-author">
-            <div class="review-avatar">L</div>
-            <div>
-              <div class="review-name">Lisa K.</div>
-              <div class="review-suburb">Manly</div>
-            </div>
-          </div>
-        </div>
-        <div class="review-card" aria-hidden="true">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-quote">"Used them for the first time after a long-stay guest and honestly it looked better than the day I bought the apartment. Worth every cent."</p>
-          <div class="review-author">
-            <div class="review-avatar">D</div>
-            <div>
-              <div class="review-name">David P.</div>
-              <div class="review-suburb">Pyrmont</div>
-            </div>
-          </div>
-        </div>
-
       </div>
+
+      <!-- Column 2 — 19s (hidden on mobile) -->
+      <div class="testimonial-col">
+        <div class="testimonial-col-inner" style="--col-duration: 19s;">
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"I manage 3 properties in Surry Hills and Phoenix handles all my turnovers. Same-day availability is a lifesaver when guests check out late. Highly recommend."</p>
+            <div class="review-author">
+              <div class="review-avatar">J</div>
+              <div><div class="review-name">James T.</div><div class="review-suburb">Surry Hills</div></div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"Finally found a cleaner that understands Airbnb. They know what guests look for, restock everything perfectly, and send photos after every clean. Game changer."</p>
+            <div class="review-author">
+              <div class="review-avatar">M</div>
+              <div><div class="review-name">Michael R.</div><div class="review-suburb">Newtown</div></div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"Switched from a general cleaner 6 months ago. The difference is night and day — my Superhost status has never been more secure. Can't recommend them enough."</p>
+            <div class="review-author">
+              <div class="review-avatar">A</div>
+              <div><div class="review-name">Anna W.</div><div class="review-suburb">Paddington</div></div>
+            </div>
+          </div>
+          <!-- duplicate -->
+          <div class="review-card" aria-hidden="true">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"I manage 3 properties in Surry Hills and Phoenix handles all my turnovers. Same-day availability is a lifesaver when guests check out late. Highly recommend."</p>
+            <div class="review-author">
+              <div class="review-avatar">J</div>
+              <div><div class="review-name">James T.</div><div class="review-suburb">Surry Hills</div></div>
+            </div>
+          </div>
+          <div class="review-card" aria-hidden="true">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"Finally found a cleaner that understands Airbnb. They know what guests look for, restock everything perfectly, and send photos after every clean. Game changer."</p>
+            <div class="review-author">
+              <div class="review-avatar">M</div>
+              <div><div class="review-name">Michael R.</div><div class="review-suburb">Newtown</div></div>
+            </div>
+          </div>
+          <div class="review-card" aria-hidden="true">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"Switched from a general cleaner 6 months ago. The difference is night and day — my Superhost status has never been more secure. Can't recommend them enough."</p>
+            <div class="review-author">
+              <div class="review-avatar">A</div>
+              <div><div class="review-name">Anna W.</div><div class="review-suburb">Paddington</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Column 3 — 17s (hidden on tablet & mobile) -->
+      <div class="testimonial-col">
+        <div class="testimonial-col-inner" style="--col-duration: 17s;">
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"The deep clean before our big summer season was exactly what we needed. Every corner spotless, linen done hotel-style. Guests keep commenting on how pristine the place is."</p>
+            <div class="review-author">
+              <div class="review-avatar">E</div>
+              <div><div class="review-name">Emma L.</div><div class="review-suburb">Mosman</div></div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"They handled a tricky late checkout with zero fuss. Property was spotless in under 90 minutes, and the next guests checked in saying it was 'better than a hotel.' Incredible team."</p>
+            <div class="review-author">
+              <div class="review-avatar">T</div>
+              <div><div class="review-name">Tom H.</div><div class="review-suburb">Glebe</div></div>
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"As a remote host I can't check the property between stays. Phoenix sends photos every time — I have complete peace of mind and my guests consistently rate cleanliness 5 stars."</p>
+            <div class="review-author">
+              <div class="review-avatar">C</div>
+              <div><div class="review-name">Claire B.</div><div class="review-suburb">North Sydney</div></div>
+            </div>
+          </div>
+          <!-- duplicate -->
+          <div class="review-card" aria-hidden="true">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"The deep clean before our big summer season was exactly what we needed. Every corner spotless, linen done hotel-style. Guests keep commenting on how pristine the place is."</p>
+            <div class="review-author">
+              <div class="review-avatar">E</div>
+              <div><div class="review-name">Emma L.</div><div class="review-suburb">Mosman</div></div>
+            </div>
+          </div>
+          <div class="review-card" aria-hidden="true">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"They handled a tricky late checkout with zero fuss. Property was spotless in under 90 minutes, and the next guests checked in saying it was 'better than a hotel.' Incredible team."</p>
+            <div class="review-author">
+              <div class="review-avatar">T</div>
+              <div><div class="review-name">Tom H.</div><div class="review-suburb">Glebe</div></div>
+            </div>
+          </div>
+          <div class="review-card" aria-hidden="true">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-quote">"As a remote host I can't check the property between stays. Phoenix sends photos every time — I have complete peace of mind and my guests consistently rate cleanliness 5 stars."</p>
+            <div class="review-author">
+              <div class="review-avatar">C</div>
+              <div><div class="review-name">Claire B.</div><div class="review-suburb">North Sydney</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -2908,23 +3080,42 @@
       navbar.classList.toggle('scrolled', window.scrollY > 10);
     }, { passive: true });
 
-    // ── Mobile menu toggle ─────────────────────────────────
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
+    // ── Mobile menu toggle (Component 3 slide-in) ─────────
+    const hamburgerBtn  = document.getElementById('hamburger-btn');
+    const mobileMenu    = document.getElementById('mobile-menu');
+    const mobileCloseBtn = document.getElementById('mobile-close-btn');
+
+    function openMobileMenu() {
+      mobileMenu.style.display = 'block';
+      requestAnimationFrame(() => {
+        mobileMenu.classList.add('open');
+      });
+      hamburgerBtn.classList.add('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('open');
+      hamburgerBtn.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      setTimeout(() => {
+        if (!mobileMenu.classList.contains('open')) {
+          mobileMenu.style.display = 'none';
+        }
+      }, 350);
+    }
 
     hamburgerBtn.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.toggle('open');
-      hamburgerBtn.classList.toggle('open', isOpen);
-      hamburgerBtn.setAttribute('aria-expanded', isOpen.toString());
+      mobileMenu.classList.contains('open') ? closeMobileMenu() : openMobileMenu();
     });
 
-    // Close mobile menu on link click
+    if (mobileCloseBtn) mobileCloseBtn.addEventListener('click', closeMobileMenu);
+
+    // Close on link click
     document.querySelectorAll('.mobile-nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-        hamburgerBtn.classList.remove('open');
-        hamburgerBtn.setAttribute('aria-expanded', 'false');
-      });
+      link.addEventListener('click', closeMobileMenu);
     });
 
     // ── Live price calculator ─────────────────────────────
