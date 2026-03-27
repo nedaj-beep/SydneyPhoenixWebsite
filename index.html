@@ -718,6 +718,590 @@
         border-bottom: none;
       }
     }
+
+    /* ─── 5. SERVICES ──────────────────────────────────── */
+    #services {
+      background: var(--grey);
+      padding: 96px 24px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .section-eyebrow {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #111;
+      margin: 0 0 14px;
+      line-height: 1.1;
+    }
+
+    .section-subtitle {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      color: #666;
+      line-height: 1.7;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .services-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      background: #FFFFFF;
+      border: 1px solid #ececec;
+      border-radius: 16px;
+      padding: 36px 32px 32px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.22s cubic-bezier(.34,1.56,.64,1), box-shadow 0.22s ease;
+      box-shadow: 0 2px 8px rgba(17,17,17,0.04), 0 1px 2px rgba(17,17,17,0.03);
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(17,17,17,0.10), 0 4px 12px rgba(232,52,42,0.08);
+    }
+
+    .service-card.featured {
+      border-color: var(--red);
+      box-shadow: 0 4px 24px rgba(232,52,42,0.14), 0 1px 4px rgba(232,52,42,0.08);
+    }
+
+    .service-card.featured:hover {
+      box-shadow: 0 16px 48px rgba(232,52,42,0.22), 0 4px 12px rgba(232,52,42,0.12);
+    }
+
+    .service-popular-badge {
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--red);
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(232,52,42,0.08);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      flex-shrink: 0;
+    }
+
+    .service-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #111;
+      margin: 0 0 10px;
+    }
+
+    .service-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14.5px;
+      color: #666;
+      line-height: 1.65;
+      margin: 0 0 20px;
+      flex: 1;
+    }
+
+    .service-includes {
+      list-style: none;
+      margin: 0 0 24px;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .service-includes li {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13.5px;
+      color: #444;
+    }
+
+    .service-includes li::before {
+      content: '';
+      width: 16px;
+      height: 16px;
+      background: rgba(232,52,42,0.10);
+      border-radius: 50%;
+      flex-shrink: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23E8342A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .service-price {
+      font-family: 'Syne', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--red);
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .service-price span {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: #888;
+      letter-spacing: 0;
+    }
+
+    .service-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: #FFFFFF;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.18s ease, transform 0.15s cubic-bezier(.34,1.56,.64,1), box-shadow 0.18s ease;
+      box-shadow: 0 3px 12px rgba(232,52,42,0.24);
+    }
+
+    .service-btn:hover {
+      background: var(--red-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(232,52,42,0.32);
+    }
+
+    .service-btn:active { transform: translateY(0); }
+
+    .service-btn.outline {
+      background: transparent;
+      color: var(--red);
+      border: 1.5px solid var(--red);
+      box-shadow: none;
+    }
+
+    .service-btn.outline:hover {
+      background: var(--red);
+      color: #fff;
+    }
+
+    @media (max-width: 900px) {
+      .services-grid { grid-template-columns: 1fr; max-width: 480px; }
+    }
+
+    /* ─── 6. HOW IT WORKS ──────────────────────────────── */
+    #how-it-works {
+      background: #FFFFFF;
+      padding: 96px 24px;
+    }
+
+    .steps-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      position: relative;
+    }
+
+    /* Connector line between steps */
+    .steps-grid::before {
+      content: '';
+      position: absolute;
+      top: 44px;
+      left: calc(16.66% + 24px);
+      right: calc(16.66% + 24px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--red) 0%, rgba(232,52,42,0.2) 50%, var(--red) 100%);
+      background-size: 8px 2px;
+      background-image: repeating-linear-gradient(90deg, var(--red) 0, var(--red) 4px, transparent 4px, transparent 12px);
+    }
+
+    .step-card {
+      text-align: center;
+      padding: 40px 28px 36px;
+      border-radius: 16px;
+      background: #F7F7F7;
+      position: relative;
+      transition: transform 0.22s cubic-bezier(.34,1.56,.64,1), box-shadow 0.22s ease;
+    }
+
+    .step-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(17,17,17,0.08);
+    }
+
+    .step-number-ring {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--red);
+      color: #fff;
+      font-family: 'Syne', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 4px 16px rgba(232,52,42,0.30);
+    }
+
+    .step-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #111;
+      margin: 0 0 10px;
+    }
+
+    .step-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14.5px;
+      color: #666;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    @media (max-width: 700px) {
+      .steps-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+      }
+      .steps-grid::before { display: none; }
+    }
+
+    /* ─── 7. COMPARISON TABLE ──────────────────────────── */
+    #comparison {
+      background: var(--grey);
+      padding: 96px 24px;
+    }
+
+    .comparison-wrap {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      background: #FFFFFF;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 32px rgba(17,17,17,0.07), 0 1px 4px rgba(17,17,17,0.04);
+    }
+
+    .comparison-table thead tr th {
+      padding: 20px 24px;
+      font-family: 'Syne', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      text-align: center;
+      background: #F7F7F7;
+    }
+
+    .comparison-table thead tr th:first-child {
+      text-align: left;
+      width: 55%;
+    }
+
+    .comparison-table thead tr th.col-us {
+      background: var(--red);
+      color: #FFFFFF;
+    }
+
+    .comparison-table thead tr th.col-us span {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      opacity: 0.85;
+      margin-top: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .comparison-table tbody tr td {
+      padding: 16px 24px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14.5px;
+      color: #333;
+      border-top: 1px solid #f0f0f0;
+      text-align: center;
+    }
+
+    .comparison-table tbody tr td:first-child {
+      text-align: left;
+      font-weight: 500;
+      color: #111;
+    }
+
+    .comparison-table tbody tr:hover td {
+      background: rgba(232,52,42,0.02);
+    }
+
+    .check-yes {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      background: rgba(232,52,42,0.10);
+      border-radius: 50%;
+      color: var(--red);
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .check-no {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      background: #f0f0f0;
+      border-radius: 50%;
+      color: #bbb;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 600px) {
+      .comparison-table thead tr th,
+      .comparison-table tbody tr td {
+        padding: 14px 14px;
+        font-size: 13px;
+      }
+    }
+
+    /* ─── 8. PRICING ───────────────────────────────────── */
+    #pricing {
+      background: #FFFFFF;
+      padding: 96px 24px;
+    }
+
+    .pricing-toggle-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 52px;
+    }
+
+    .pricing-toggle-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: #555;
+      cursor: pointer;
+      transition: color 0.18s ease;
+    }
+
+    .pricing-toggle-label.active { color: #111; font-weight: 600; }
+
+    .pricing-toggle-pill {
+      position: relative;
+      width: 52px;
+      height: 28px;
+      cursor: pointer;
+    }
+
+    .pricing-toggle-pill input { opacity: 0; width: 0; height: 0; }
+
+    .pricing-pill-track {
+      position: absolute;
+      inset: 0;
+      background: #ddd;
+      border-radius: 100px;
+      transition: background 0.2s ease;
+    }
+
+    .pricing-pill-track::after {
+      content: '';
+      position: absolute;
+      top: 4px; left: 4px;
+      width: 20px; height: 20px;
+      background: #fff;
+      border-radius: 50%;
+      transition: transform 0.2s cubic-bezier(.34,1.56,.64,1);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.18);
+    }
+
+    .pricing-toggle-pill input:checked + .pricing-pill-track { background: var(--red); }
+    .pricing-toggle-pill input:checked + .pricing-pill-track::after { transform: translateX(24px); }
+
+    .discount-badge {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(232,52,42,0.10);
+      color: var(--red);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 100px;
+    }
+
+    .pricing-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .pricing-card {
+      background: #F7F7F7;
+      border: 1.5px solid #ececec;
+      border-radius: 16px;
+      padding: 36px 28px 32px;
+      position: relative;
+      transition: transform 0.22s cubic-bezier(.34,1.56,.64,1), box-shadow 0.22s ease;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 36px rgba(17,17,17,0.09);
+    }
+
+    .pricing-card.featured {
+      background: #FFFFFF;
+      border-color: var(--red);
+      box-shadow: 0 4px 24px rgba(232,52,42,0.12);
+    }
+
+    .pricing-card.featured:hover {
+      box-shadow: 0 16px 48px rgba(232,52,42,0.20);
+    }
+
+    .pricing-card-badge {
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--red);
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    .pricing-card-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #111;
+      margin: 0 0 6px;
+    }
+
+    .pricing-card-tagline {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13.5px;
+      color: #777;
+      margin: 0 0 24px;
+    }
+
+    /* Pricing table per bedroom */
+    .pricing-bedroom-table {
+      width: 100%;
+      margin-bottom: 24px;
+    }
+
+    .pricing-bedroom-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 9px 0;
+      border-bottom: 1px solid #ececec;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+    }
+
+    .pricing-bedroom-row:last-child { border-bottom: none; }
+
+    .pricing-bedroom-label { color: #555; }
+
+    .pricing-bedroom-price {
+      font-weight: 700;
+      color: var(--red);
+      transition: opacity 0.2s ease;
+    }
+
+    .pricing-cta-btn {
+      display: block;
+      text-align: center;
+      background: var(--red);
+      color: #FFFFFF;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.18s ease, transform 0.15s cubic-bezier(.34,1.56,.64,1), box-shadow 0.18s ease;
+      box-shadow: 0 3px 12px rgba(232,52,42,0.24);
+    }
+
+    .pricing-cta-btn:hover {
+      background: var(--red-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(232,52,42,0.32);
+    }
+
+    .pricing-cta-btn:active { transform: translateY(0); }
+
+    @media (max-width: 900px) {
+      .pricing-grid { grid-template-columns: 1fr; max-width: 420px; }
+    }
   </style>
 </head>
 <body>
@@ -936,6 +1520,285 @@
   </section>
 
   <!-- ══════════════════════════════════════════════════════
+       5. SERVICES
+  ══════════════════════════════════════════════════════ -->
+  <section id="services" aria-labelledby="services-title">
+    <div class="section-header">
+      <div class="section-eyebrow">What We Offer</div>
+      <h2 class="section-title" id="services-title">Everything Your Property Needs</h2>
+      <p class="section-subtitle">From quick turnover cleans between guests to full deep cleans — we have Sydney hosts covered.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <!-- Turnover Clean -->
+      <div class="service-card">
+        <div class="service-icon">
+          <!-- Sparkle icon -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v1M12 20v1M3 12h1M20 12h1M5.636 5.636l.707.707M17.657 17.657l.707.707M5.636 18.364l.707-.707M17.657 6.343l.707-.707"/><circle cx="12" cy="12" r="4"/></svg>
+        </div>
+        <h3 class="service-name">Turnover Clean</h3>
+        <p class="service-desc">Our bread-and-butter service — a thorough clean between guest checkouts so every new arrival walks into a spotless, guest-ready property.</p>
+        <ul class="service-includes">
+          <li>Full kitchen wipe-down and bench sanitise</li>
+          <li>Bathroom scrub and mirror polish</li>
+          <li>Fresh linen and towel folding</li>
+          <li>Vacuum, mop, and dust all rooms</li>
+          <li>Rubbish removal and reset</li>
+        </ul>
+        <div class="service-price">From $99 <span>/ studio</span></div>
+        <a href="#contact" class="service-btn">Book Now</a>
+      </div>
+
+      <!-- Deep Clean — featured -->
+      <div class="service-card featured">
+        <div class="service-popular-badge">Most Popular</div>
+        <div class="service-icon">
+          <!-- Shield check icon -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        </div>
+        <h3 class="service-name">Deep Clean</h3>
+        <p class="service-desc">A top-to-bottom detail clean — perfect after long-stay guests, end of tenancy, or when the property needs a full refresh before relisting.</p>
+        <ul class="service-includes">
+          <li>Everything in a Turnover Clean, plus:</li>
+          <li>Inside oven, fridge, and microwave</li>
+          <li>Skirting boards, doors, and light switches</li>
+          <li>Window sills and tracks</li>
+          <li>Behind appliances and furniture</li>
+        </ul>
+        <div class="service-price">From $149 <span>/ studio</span></div>
+        <a href="#contact" class="service-btn">Book Now</a>
+      </div>
+
+      <!-- Restock & Linen -->
+      <div class="service-card">
+        <div class="service-icon">
+          <!-- Package icon -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 9.4 7.55 4.24"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.29 7 12 12 20.71 7"/><line x1="12" y1="22" x2="12" y2="12"/></svg>
+        </div>
+        <h3 class="service-name">Restock &amp; Linen</h3>
+        <p class="service-desc">Add-on to any clean. We restock your guest essentials — toilet paper, hand soap, shampoo — and arrange fresh linen hotel-style.</p>
+        <ul class="service-includes">
+          <li>Toiletry restock (per your kit)</li>
+          <li>Fresh towels folded hotel-style</li>
+          <li>Bed linen changed and pressed</li>
+          <li>Welcome setup if requested</li>
+          <li>Inventory check &amp; low-stock report</li>
+        </ul>
+        <div class="service-price">+$49 <span>/ add-on</span></div>
+        <a href="#contact" class="service-btn outline">Add to a Clean</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       6. HOW IT WORKS
+  ══════════════════════════════════════════════════════ -->
+  <section id="how-it-works" aria-labelledby="hiw-title">
+    <div class="section-header">
+      <div class="section-eyebrow">Simple Process</div>
+      <h2 class="section-title" id="hiw-title">Guest-Ready in 3 Steps</h2>
+      <p class="section-subtitle">From booking to checkout, we make the process completely hands-off for you as a host.</p>
+    </div>
+
+    <div class="steps-grid">
+
+      <div class="step-card">
+        <div class="step-number-ring">1</div>
+        <h3 class="step-title">Tell Us About Your Property</h3>
+        <p class="step-desc">Book online in minutes. Share your property details, checkout time, and any special host instructions. We confirm same-day.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-number-ring">2</div>
+        <h3 class="step-title">We Arrive &amp; Clean</h3>
+        <p class="step-desc">Our insured, background-checked team arrives on time, works through our 5-star checklist, and photos the finished property for your records.</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-number-ring">3</div>
+        <h3 class="step-title">Guests Check In Happy</h3>
+        <p class="step-desc">You get a completion notification — property is spotless, linen is fresh, and your next guests are about to leave you a glowing 5-star review.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       7. COMPARISON TABLE
+  ══════════════════════════════════════════════════════ -->
+  <section id="comparison" aria-labelledby="compare-title">
+    <div class="section-header">
+      <div class="section-eyebrow">Why Choose Us</div>
+      <h2 class="section-title" id="compare-title">Not All Cleaners Are Equal</h2>
+      <p class="section-subtitle">See how Sydney Phoenix stacks up against generic cleaning services.</p>
+    </div>
+
+    <div class="comparison-wrap">
+      <table class="comparison-table" role="table">
+        <thead>
+          <tr>
+            <th scope="col" style="text-align:left; border-radius: 16px 0 0 0;"></th>
+            <th scope="col" class="col-us">
+              Sydney Phoenix
+              <span>Airbnb Specialist</span>
+            </th>
+            <th scope="col" style="border-radius: 0 16px 0 0;">Other Cleaners</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Airbnb-specialist team</td>
+            <td><span class="check-yes">✓</span></td>
+            <td><span class="check-no">✕</span></td>
+          </tr>
+          <tr>
+            <td>Same-day availability</td>
+            <td><span class="check-yes">✓</span></td>
+            <td><span class="check-no">✕</span></td>
+          </tr>
+          <tr>
+            <td>Linen &amp; restocking included</td>
+            <td><span class="check-yes">✓</span></td>
+            <td><span class="check-no">✕</span></td>
+          </tr>
+          <tr>
+            <td>Instant online pricing</td>
+            <td><span class="check-yes">✓</span></td>
+            <td><span class="check-no">✕</span></td>
+          </tr>
+          <tr>
+            <td>No lock-in contracts</td>
+            <td><span class="check-yes">✓</span></td>
+            <td><span class="check-no">✕</span></td>
+          </tr>
+          <tr>
+            <td>100% satisfaction guarantee</td>
+            <td><span class="check-yes">✓</span></td>
+            <td><span class="check-yes">✓</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       8. PRICING
+  ══════════════════════════════════════════════════════ -->
+  <section id="pricing" aria-labelledby="pricing-title">
+    <div class="section-header">
+      <div class="section-eyebrow">Transparent Pricing</div>
+      <h2 class="section-title" id="pricing-title">Simple, Honest Rates</h2>
+      <p class="section-subtitle">No hidden fees. No lock-in contracts. Just great cleaning at a fair price.</p>
+    </div>
+
+    <!-- Toggle: One-Off / Regular -->
+    <div class="pricing-toggle-wrap" role="group" aria-label="Pricing frequency">
+      <span class="pricing-toggle-label active" id="label-oneoff">One-Off</span>
+      <label class="pricing-toggle-pill" aria-label="Toggle regular pricing">
+        <input type="checkbox" id="pricing-toggle" />
+        <div class="pricing-pill-track"></div>
+      </label>
+      <span class="pricing-toggle-label" id="label-regular">
+        Regular &nbsp;<span class="discount-badge">Save 10%</span>
+      </span>
+    </div>
+
+    <div class="pricing-grid">
+
+      <!-- Turnover Clean -->
+      <div class="pricing-card">
+        <div class="pricing-card-name">Turnover Clean</div>
+        <div class="pricing-card-tagline">Fast, reliable checkout-to-checkin clean</div>
+        <div class="pricing-bedroom-table">
+          <div class="pricing-bedroom-row">
+            <span class="pricing-bedroom-label">Studio</span>
+            <span class="pricing-bedroom-price" data-base="99">$99</span>
+          </div>
+          <div class="pricing-bedroom-row">
+            <span class="pricing-bedroom-label">1 Bedroom</span>
+            <span class="pricing-bedroom-price" data-base="129">$129</span>
+          </div>
+          <div class="pricing-bedroom-row">
+            <span class="pricing-bedroom-label">2 Bedrooms</span>
+            <span class="pricing-bedroom-price" data-base="159">$159</span>
+          </div>
+          <div class="pricing-bedroom-row">
+            <span class="pricing-bedroom-label">3 Bedrooms</span>
+            <span class="pricing-bedroom-price" data-base="199">$199</span>
+          </div>
+          <div class="pricing-bedroom-row">
+            <span class="pricing-bedroom-label">4+ Bedrooms</span>
+            <span class="pricing-bedroom-price" data-base="249">$249</span>
+          </div>
+        </div>
+        <a href="#contact" class="pricing-cta-btn">Book Now</a>
+      </div>
+
+      <!-- Deep Clean — featured -->
+      <div class="pricing-card featured">
+        <div class="pricing-card-badge">Most Popular</div>
+        <div class="pricing-card-name">Deep Clean</div>
+        <div class="pricing-card-tagline">Top-to-bottom refresh for any property</div>
+        <div class="pricing-bedroom-table">
+          <div class="pricing-bedroom-row">
+            <span class="pricing-bedroom-label">Studio</span>
+            <span class="pricing-bedroom-price" data-base="149">$149</span>
+          </div>
+          <div class="pricing-bedroom-row">
+            <span class="pricing-bedroom-label">1 Bedroom</span>
+            <span class="pricing-bedroom-price" data-base="189">$189</span>
+          </div>
+          <div class="pricing-bedroom-row">
+            <span class="pricing-bedroom-label">2 Bedrooms</span>
+            <span class="pricing-bedroom-price" data-base="229">$229</span>
+          </div>
+          <div class="pricing-bedroom-row">
+            <span class="pricing-bedroom-label">3 Bedrooms</span>
+            <span class="pricing-bedroom-price" data-base="279">$279</span>
+          </div>
+          <div class="pricing-bedroom-row">
+            <span class="pricing-bedroom-label">4+ Bedrooms</span>
+            <span class="pricing-bedroom-price" data-base="339">$339</span>
+          </div>
+        </div>
+        <a href="#contact" class="pricing-cta-btn">Book Now</a>
+      </div>
+
+      <!-- Restock Add-On -->
+      <div class="pricing-card">
+        <div class="pricing-card-name">Restock &amp; Linen</div>
+        <div class="pricing-card-tagline">Add-on to any clean, any size</div>
+        <div class="pricing-bedroom-table">
+          <div class="pricing-bedroom-row">
+            <span class="pricing-bedroom-label">Any property size</span>
+            <span class="pricing-bedroom-price" data-base="49" data-fixed="true">+$49</span>
+          </div>
+          <div class="pricing-bedroom-row">
+            <span class="pricing-bedroom-label">Includes</span>
+            <span style="font-size:13px; color:#555;">Toiletries &amp; linen</span>
+          </div>
+          <div class="pricing-bedroom-row">
+            <span class="pricing-bedroom-label">Hotel-style setup</span>
+            <span style="font-size:13px; color: #E8342A; font-weight:600;">✓ Included</span>
+          </div>
+          <div class="pricing-bedroom-row">
+            <span class="pricing-bedroom-label">Inventory report</span>
+            <span style="font-size:13px; color: #E8342A; font-weight:600;">✓ Included</span>
+          </div>
+          <div class="pricing-bedroom-row">
+            <span class="pricing-bedroom-label">Welcome setup</span>
+            <span style="font-size:13px; color: #E8342A; font-weight:600;">✓ On request</span>
+          </div>
+        </div>
+        <a href="#contact" class="pricing-cta-btn">Add to a Clean</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
        JAVASCRIPT
   ══════════════════════════════════════════════════════ -->
   <script>
@@ -1038,6 +1901,27 @@
 
     const statsSection = document.getElementById('stats');
     if (statsSection) statsObserver.observe(statsSection);
+
+    // ── Pricing toggle (10% off for Regular) ─────────────
+    const pricingToggle = document.getElementById('pricing-toggle');
+    const labelOneoff   = document.getElementById('label-oneoff');
+    const labelRegular  = document.getElementById('label-regular');
+
+    if (pricingToggle) {
+      pricingToggle.addEventListener('change', () => {
+        const isRegular = pricingToggle.checked;
+        labelOneoff.classList.toggle('active', !isRegular);
+        labelRegular.classList.toggle('active', isRegular);
+
+        document.querySelectorAll('.pricing-bedroom-price').forEach(el => {
+          const base    = parseFloat(el.dataset.base);
+          const isFixed = el.dataset.fixed === 'true';
+          if (isFixed) return; // Restock flat fee stays flat
+          const price   = isRegular ? Math.round(base * 0.9) : base;
+          el.textContent = '$' + price;
+        });
+      });
+    }
 
     // ── Smooth scroll for nav links ──────────────────────
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
