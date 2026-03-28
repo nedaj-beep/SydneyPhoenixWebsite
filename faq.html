@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="index, follow" />
   <meta name="description" content="Sydney Phoenix Cleaning — Sydney's #1 Airbnb cleaning service. Same-day turnover cleans, deep cleans, linen & restocking. Trusted by 500+ hosts across Sydney." />
-  <title>Sydney Phoenix Cleaning | #1 Airbnb Cleaning Sydney</title>
+  <title>FAQ | Sydney Phoenix Cleaning</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -2122,7 +2122,7 @@
             </a>
           </li>
           <li>
-            <a href="#contact" class="nav-book-btn">Book Now</a>
+            <a href="index.html#contact" class="nav-book-btn">Book Now</a>
           </li>
         </ul>
       </nav>
@@ -2144,249 +2144,82 @@
         <li><a href="reviews.html" class="mobile-nav-link">Reviews</a></li>
         <li><a href="faq.html" class="mobile-nav-link">FAQ</a></li>
       </ul>
-      <a href="#contact" class="mobile-book-btn mobile-nav-link">Book Now →</a>
+      <a href="index.html#contact" class="mobile-book-btn mobile-nav-link">Book Now →</a>
     </div>
   </header>
 
   <!-- ══════════════════════════════════════════════════════
-       3. HERO
+       12. FAQ
   ══════════════════════════════════════════════════════ -->
-  <section id="hero" aria-labelledby="hero-heading">
-    <div class="hero-inner">
-
-      <!-- Left: Copy -->
-      <div class="hero-left">
-        <div class="hero-eyebrow">Sydney's Most Trusted Airbnb Cleaners</div>
-
-        <h1 class="hero-heading" id="hero-heading">
-          Your Guests Deserve<br />a <span class="accent">5-Star</span> Clean.
-        </h1>
-
-        <p class="hero-subheading">
-          We handle every turnover so you never have to. Fast, reliable, and Airbnb-specialist — your property will be guest-ready before the next checkout notification lands.
-        </p>
-
-        <!-- Trust badges -->
-        <div class="trust-badges" aria-label="Trust indicators">
-          <div class="badge">
-            <!-- Shield icon -->
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            Fully Insured
-          </div>
-          <div class="badge">
-            <!-- Star icon -->
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="#E8342A" stroke="#E8342A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            4.9 Stars
-          </div>
-          <div class="badge">
-            <!-- Clock icon -->
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Same-Day Bookings
-          </div>
-        </div>
-
-        <!-- CTA buttons -->
-        <div class="hero-btns">
-          <a href="#contact" class="btn-primary">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            Book Now
-          </a>
-          <a href="services.html" class="btn-secondary">
-            See Services
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Right: Price Calculator -->
-      <div class="hero-right">
-        <div class="calc-card" role="region" aria-label="Instant price calculator">
-          <div class="calc-title">Get an Instant Quote</div>
-          <div class="calc-subtitle">No lock-in contracts. No surprises.</div>
-
-          <!-- Bedrooms dropdown -->
-          <div class="calc-field">
-            <label for="calc-bedrooms">Bedrooms</label>
-            <select id="calc-bedrooms" aria-label="Number of bedrooms">
-              <option value="studio">Studio</option>
-              <option value="1" selected>1 Bedroom</option>
-              <option value="2">2 Bedrooms</option>
-              <option value="3">3 Bedrooms</option>
-              <option value="4">4+ Bedrooms</option>
-            </select>
-          </div>
-
-          <!-- Bathrooms dropdown -->
-          <div class="calc-field">
-            <label for="calc-bathrooms">Bathrooms</label>
-            <select id="calc-bathrooms" aria-label="Number of bathrooms">
-              <option value="1" selected>1 Bathroom</option>
-              <option value="2">2 Bathrooms</option>
-              <option value="3">3+ Bathrooms</option>
-            </select>
-          </div>
-
-          <!-- Service Type dropdown -->
-          <div class="calc-field">
-            <label for="calc-service">Service Type</label>
-            <select id="calc-service" aria-label="Service type">
-              <option value="turnover" selected>Turnover Clean</option>
-              <option value="deep">Deep Clean</option>
-            </select>
-          </div>
-
-          <!-- Restock add-on toggle -->
-          <label class="restock-row" for="calc-restock" style="user-select:none;">
-            <div class="restock-label">
-              Restock &amp; Linen Add-On
-              <span>Toiletries, towels &amp; linen refresh</span>
-            </div>
-            <div class="toggle">
-              <input type="checkbox" id="calc-restock" aria-label="Add restock and linen service" />
-              <div class="toggle-track"></div>
-            </div>
-          </label>
-
-          <!-- Price display -->
-          <div class="calc-price-box" aria-live="polite">
-            <div class="calc-price-label">Estimated Price</div>
-            <div class="calc-price-amount" id="calc-price">$129</div>
-            <div class="calc-price-note" id="calc-price-note">Turnover Clean · 1 Bedroom</div>
-          </div>
-
-          <!-- Book button -->
-          <a href="#contact" class="calc-book-btn">Book This Clean →</a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════
-       4. STATS BAR
-  ══════════════════════════════════════════════════════ -->
-  <section id="stats" aria-label="Key statistics">
-    <div class="stats-inner">
-
-      <div class="stat-item">
-        <div class="stat-number" data-target="500" data-suffix="+">
-          <span class="count-num">500</span><span class="suffix">+</span>
-        </div>
-        <div class="stat-label">Cleans Completed</div>
-      </div>
-
-      <div class="stat-item">
-        <div class="stat-number" data-target="4.9" data-suffix="" data-decimal="1">
-          <span class="count-num">4.9</span>
-        </div>
-        <div class="stat-label">Star Average Rating</div>
-      </div>
-
-      <div class="stat-item">
-        <div class="stat-number" data-target="100" data-suffix="%">
-          <span class="count-num">100</span><span class="suffix">%</span>
-        </div>
-        <div class="stat-label">Satisfaction Guarantee</div>
-      </div>
-
-      <div class="stat-item">
-        <div class="stat-number">
-          <span style="font-size: clamp(22px, 3vw, 34px);">Same-Day</span>
-        </div>
-        <div class="stat-label">Bookings Available</div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════════
-       6. HOW IT WORKS
-  ══════════════════════════════════════════════════════ -->
-  <section id="how-it-works" aria-labelledby="hiw-title">
+  <section id="faq" aria-labelledby="faq-title">
     <div class="section-header">
-      <div class="section-eyebrow">Simple Process</div>
-      <h2 class="section-title" id="hiw-title">Guest-Ready in 3 Steps</h2>
-      <p class="section-subtitle">From booking to checkout, we make the process completely hands-off for you as a host.</p>
+      <div class="section-eyebrow">Got Questions?</div>
+      <h2 class="section-title" id="faq-title">Frequently Asked Questions</h2>
+      <p class="section-subtitle">Everything you need to know about booking a clean with Sydney Phoenix.</p>
     </div>
 
-    <div class="steps-grid">
+    <div class="faq-list" role="list">
 
-      <div class="step-card">
-        <div class="step-number-ring">1</div>
-        <h3 class="step-title">Tell Us About Your Property</h3>
-        <p class="step-desc">Book online in minutes. Share your property details, checkout time, and any special host instructions. We confirm same-day.</p>
-      </div>
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-question-text">How quickly can you come after checkout?</span>
+          <div class="faq-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </summary>
+        <div class="faq-answer">We offer same-day bookings across Sydney. If you book before 10am, we can typically be there within a few hours of your guest's checkout. For regular hosts, we recommend scheduling recurring cleans in advance to lock in your preferred time slot.</div>
+      </details>
 
-      <div class="step-card">
-        <div class="step-number-ring">2</div>
-        <h3 class="step-title">We Arrive &amp; Clean</h3>
-        <p class="step-desc">Our insured, background-checked team arrives on time, works through our 5-star checklist, and photos the finished property for your records.</p>
-      </div>
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-question-text">Do you restock supplies?</span>
+          <div class="faq-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </summary>
+        <div class="faq-answer">Yes! Our Restock &amp; Linen add-on covers toiletries (toilet paper, hand soap, shampoo, conditioner), fresh towels folded hotel-style, and bed linen changes. We also send a low-stock notification so you're never caught short before a check-in.</div>
+      </details>
 
-      <div class="step-card">
-        <div class="step-number-ring">3</div>
-        <h3 class="step-title">Guests Check In Happy</h3>
-        <p class="step-desc">You get a completion notification — property is spotless, linen is fresh, and your next guests are about to leave you a glowing 5-star review.</p>
-      </div>
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-question-text">What if a guest leaves the property in bad condition?</span>
+          <div class="faq-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </summary>
+        <div class="faq-answer">We'll contact you before starting if the property requires significantly more work than a standard turnover. We'll give you an honest quote for the extra time. We also photograph the property on arrival and departure so you have documentation for any Airbnb damage claims.</div>
+      </details>
 
-    </div>
-  </section>
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-question-text">Do I need to be there during the clean?</span>
+          <div class="faq-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </summary>
+        <div class="faq-answer">Not at all. Most of our hosts are completely remote. We handle key access via lockbox, building concierge, or key handover — whatever works for you. You'll receive a completion notification with photos when we're done.</div>
+      </details>
 
-  <!-- ══════════════════════════════════════════════════════
-       7. COMPARISON TABLE
-  ══════════════════════════════════════════════════════ -->
-  <section id="comparison" aria-labelledby="compare-title">
-    <div class="section-header">
-      <div class="section-eyebrow">Why Choose Us</div>
-      <h2 class="section-title" id="compare-title">Not All Cleaners Are Equal</h2>
-      <p class="section-subtitle">See how Sydney Phoenix stacks up against generic cleaning services.</p>
-    </div>
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-question-text">Can you manage multiple properties?</span>
+          <div class="faq-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </summary>
+        <div class="faq-answer">Absolutely — we work with property managers and hosts with 10+ listings. We can set up recurring schedules across multiple properties, sync with your Airbnb calendar, and provide a single invoice. Get in touch and we'll build a custom plan for your portfolio.</div>
+      </details>
 
-    <div class="comparison-wrap">
-      <table class="comparison-table" role="table">
-        <thead>
-          <tr>
-            <th scope="col" style="text-align:left; border-radius: 16px 0 0 0;"></th>
-            <th scope="col" class="col-us">
-              Sydney Phoenix
-              <span>Airbnb Specialist</span>
-            </th>
-            <th scope="col" style="border-radius: 0 16px 0 0;">Other Cleaners</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Airbnb-specialist team</td>
-            <td><span class="check-yes">✓</span></td>
-            <td><span class="check-no">✕</span></td>
-          </tr>
-          <tr>
-            <td>Same-day availability</td>
-            <td><span class="check-yes">✓</span></td>
-            <td><span class="check-no">✕</span></td>
-          </tr>
-          <tr>
-            <td>Linen &amp; restocking included</td>
-            <td><span class="check-yes">✓</span></td>
-            <td><span class="check-no">✕</span></td>
-          </tr>
-          <tr>
-            <td>Instant online pricing</td>
-            <td><span class="check-yes">✓</span></td>
-            <td><span class="check-no">✕</span></td>
-          </tr>
-          <tr>
-            <td>No lock-in contracts</td>
-            <td><span class="check-yes">✓</span></td>
-            <td><span class="check-no">✕</span></td>
-          </tr>
-          <tr>
-            <td>100% satisfaction guarantee</td>
-            <td><span class="check-yes">✓</span></td>
-            <td><span class="check-yes">✓</span></td>
-          </tr>
-        </tbody>
-      </table>
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span class="faq-question-text">Are cleaners insured and background-checked?</span>
+          <div class="faq-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </summary>
+        <div class="faq-answer">Yes. Every Sydney Phoenix cleaner is fully insured for public liability, has passed a police background check, and has been trained specifically for Airbnb and short-stay cleaning standards. Your property — and your guests — are in safe hands.</div>
+      </details>
+
     </div>
   </section>
 
@@ -2449,13 +2282,13 @@
         <div class="footer-col-title">Quick Links</div>
         <ul class="footer-links">
           <li><a href="services.html">Services</a></li>
-          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="index.html#how-it-works">How It Works</a></li>
           <li><a href="pricing.html">Pricing</a></li>
           <li><a href="reviews.html">Reviews</a></li>
           <li><a href="services.html#checklist">Our Checklist</a></li>
           <li><a href="reviews.html#areas">Service Areas</a></li>
           <li><a href="faq.html">FAQ</a></li>
-          <li><a href="#contact">Book Now</a></li>
+          <li><a href="index.html#contact">Book Now</a></li>
         </ul>
       </div>
 
