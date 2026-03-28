@@ -1789,6 +1789,123 @@
       max-width: 640px;
     }
 
+    /* ─── 12b. MINI TESTIMONIALS CAROUSEL ──────────────── */
+    #mini-reviews {
+      background: var(--grey);
+      padding: 88px 0 80px;
+      overflow: hidden;
+    }
+
+    .mini-reviews-header {
+      text-align: center;
+      margin-bottom: 48px;
+      padding: 0 24px;
+    }
+
+    .mini-reviews-rating {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: #555;
+    }
+
+    .mini-reviews-rating .gold-stars {
+      color: #f59e0b;
+      font-size: 17px;
+      letter-spacing: 2px;
+    }
+
+    /* Scrolling track wrapper */
+    .mini-carousel-wrap {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .mini-carousel-track {
+      display: flex;
+      gap: 20px;
+      width: max-content;
+      animation: mini-scroll 36s linear infinite;
+    }
+
+    .mini-carousel-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes mini-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Individual review card */
+    .mini-review-card {
+      background: #FFFFFF;
+      border: 1px solid #ececec;
+      border-radius: 16px;
+      padding: 28px 28px 26px;
+      width: 360px;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(17,17,17,0.04), 0 1px 3px rgba(17,17,17,0.03);
+      transition: box-shadow 0.22s ease, transform 0.22s cubic-bezier(.34,1.56,.64,1);
+    }
+
+    .mini-review-card:hover {
+      box-shadow: 0 8px 32px rgba(17,17,17,0.10), 0 2px 8px rgba(232,52,42,0.06);
+      transform: translateY(-3px);
+    }
+
+    .mini-card-stars {
+      color: #f59e0b;
+      font-size: 15px;
+      letter-spacing: 3px;
+      margin-bottom: 14px;
+    }
+
+    .mini-card-quote {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14.5px;
+      line-height: 1.72;
+      color: #555;
+      margin: 0 0 20px;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      line-clamp: 5;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .mini-card-name {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #111;
+    }
+
+    /* Fade edges — taken from component's gradient fade pattern */
+    .mini-carousel-fade-left,
+    .mini-carousel-fade-right {
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 140px;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .mini-carousel-fade-left {
+      left: 0;
+      background: linear-gradient(to right, var(--grey) 0%, transparent 100%);
+    }
+
+    .mini-carousel-fade-right {
+      right: 0;
+      background: linear-gradient(to left, var(--grey) 0%, transparent 100%);
+    }
+
     /* ─── 13. FINAL CTA ────────────────────────────────── */
     #cta-final {
       background: var(--red);
@@ -2388,6 +2505,92 @@
         </tbody>
       </table>
     </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       12b. MINI TESTIMONIALS CAROUSEL
+  ══════════════════════════════════════════════════════ -->
+  <section id="mini-reviews" aria-label="Customer testimonials">
+    <div class="mini-reviews-header">
+      <div class="section-eyebrow">Trusted by Sydney Hosts</div>
+      <h2 class="section-title">What Sydney Hosts Are Saying</h2>
+      <div class="mini-reviews-rating">
+        <span class="gold-stars">★★★★★</span>
+        4.9 · 31 Google Reviews
+      </div>
+    </div>
+
+    <div class="mini-carousel-wrap">
+      <div class="mini-carousel-track">
+
+        <!-- Card 1 -->
+        <div class="mini-review-card">
+          <div class="mini-card-stars">★★★★★</div>
+          <p class="mini-card-quote">"I'm extremely happy with Jaden and his team. They consistently do an excellent job and take great care with every clean. Their attention to detail and reliability really set them apart. I've worked with many cleaning companies over the years for my Airbnb business, and Jaden and his team are by far one of the best. I have complete peace of mind knowing everything will be done to a high standard every time. Highly recommend!"</p>
+          <div class="mini-card-name">Rebecca Sophia</div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="mini-review-card">
+          <div class="mini-card-stars">★★★★★</div>
+          <p class="mini-card-quote">"Jaden & Runbo have been amazing to work with and instrumental to the smooth running of my Airbnb business. They're passionate about doing a great job, open to feedback and always top notch in communication."</p>
+          <div class="mini-card-name">Tracy Wu</div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="mini-review-card">
+          <div class="mini-card-stars">★★★★★</div>
+          <p class="mini-card-quote">"Great cleaning team! Jayden and Runbo have been a great team. The property is always left spotless and well presented, with great attention to detail. They listen to feedback, take it on board, and consistently improve. Communication is excellent, and they share photos after each clean, which gives real peace of mind."</p>
+          <div class="mini-card-name">Shari P</div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="mini-review-card">
+          <div class="mini-card-stars">★★★★★</div>
+          <p class="mini-card-quote">"I've been using this team for a few months now across a couple of properties, and they've been fantastic to work with. I mainly deal with Jayden, who's always easy to communicate with and reliable. They're meticulous, thorough, take feedback well, and are always open to learning new systems and processes — exactly what a busy property manager needs. Reliable, professional, and trustworthy."</p>
+          <div class="mini-card-name">Teri Lorigan</div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="mini-review-card">
+          <div class="mini-card-stars">★★★★★</div>
+          <p class="mini-card-quote">"I run a Short Term Rental company and the boys at Sydney Phoenix Cleaning has been amazing to work with! Super reliable, easy to communicate with, and always leaves our places spotless. Honestly couldn't ask for a better cleaning team!"</p>
+          <div class="mini-card-name">Ryan Tang</div>
+        </div>
+
+        <!-- Duplicate set for seamless infinite loop -->
+        <div class="mini-review-card" aria-hidden="true">
+          <div class="mini-card-stars">★★★★★</div>
+          <p class="mini-card-quote">"I'm extremely happy with Jaden and his team. They consistently do an excellent job and take great care with every clean. Their attention to detail and reliability really set them apart. I've worked with many cleaning companies over the years for my Airbnb business, and Jaden and his team are by far one of the best. I have complete peace of mind knowing everything will be done to a high standard every time. Highly recommend!"</p>
+          <div class="mini-card-name">Rebecca Sophia</div>
+        </div>
+        <div class="mini-review-card" aria-hidden="true">
+          <div class="mini-card-stars">★★★★★</div>
+          <p class="mini-card-quote">"Jaden & Runbo have been amazing to work with and instrumental to the smooth running of my Airbnb business. They're passionate about doing a great job, open to feedback and always top notch in communication."</p>
+          <div class="mini-card-name">Tracy Wu</div>
+        </div>
+        <div class="mini-review-card" aria-hidden="true">
+          <div class="mini-card-stars">★★★★★</div>
+          <p class="mini-card-quote">"Great cleaning team! Jayden and Runbo have been a great team. The property is always left spotless and well presented, with great attention to detail. They listen to feedback, take it on board, and consistently improve. Communication is excellent, and they share photos after each clean, which gives real peace of mind."</p>
+          <div class="mini-card-name">Shari P</div>
+        </div>
+        <div class="mini-review-card" aria-hidden="true">
+          <div class="mini-card-stars">★★★★★</div>
+          <p class="mini-card-quote">"I've been using this team for a few months now across a couple of properties, and they've been fantastic to work with. I mainly deal with Jayden, who's always easy to communicate with and reliable. They're meticulous, thorough, take feedback well, and are always open to learning new systems and processes — exactly what a busy property manager needs. Reliable, professional, and trustworthy."</p>
+          <div class="mini-card-name">Teri Lorigan</div>
+        </div>
+        <div class="mini-review-card" aria-hidden="true">
+          <div class="mini-card-stars">★★★★★</div>
+          <p class="mini-card-quote">"I run a Short Term Rental company and the boys at Sydney Phoenix Cleaning has been amazing to work with! Super reliable, easy to communicate with, and always leaves our places spotless. Honestly couldn't ask for a better cleaning team!"</p>
+          <div class="mini-card-name">Ryan Tang</div>
+        </div>
+
+      </div><!-- /mini-carousel-track -->
+
+      <!-- Fade edges (from component's gradient fade pattern) -->
+      <div class="mini-carousel-fade-left" aria-hidden="true"></div>
+      <div class="mini-carousel-fade-right" aria-hidden="true"></div>
+    </div><!-- /mini-carousel-wrap -->
   </section>
 
   <!-- ══════════════════════════════════════════════════════
