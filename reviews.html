@@ -2295,7 +2295,7 @@
   /* ── Featured Testimonial Widget ──────────────────────── */
   #feat-testimonial {
     position: relative;
-    max-width: 660px;
+    max-width: 720px;
     margin: 0 auto 64px;
     padding: 64px 48px 56px;
     background: #ffffff;
@@ -2341,33 +2341,8 @@
   }
   #feat-testimonial.hovered #feat-cursor-inner span { opacity: 1; }
 
-  /* Stacked avatar pills */
-  #feat-avatars {
-    position: absolute;
-    top: 28px; left: 40px;
-    display: flex;
-    opacity: 0.6;
-  }
-  @media (max-width: 640px) { #feat-avatars { left: 24px; } }
-  .feat-avatar-thumb {
-    width: 26px; height: 26px;
-    border-radius: 50%;
-    border: 2px solid #fff;
-    background: #e8e4df;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 10px; font-weight: 700;
-    color: #555;
-    margin-left: -7px;
-    overflow: hidden;
-    transition: opacity 0.2s, transform 0.2s;
-  }
-  .feat-avatar-thumb:first-child { margin-left: 0; }
-  .feat-avatar-thumb.active {
-    box-shadow: 0 0 0 1.5px #E8342A, 0 0 0 3px rgba(232,52,42,0.15);
-    opacity: 1;
-    filter: none;
-  }
-  .feat-avatar-thumb.inactive { filter: grayscale(1); opacity: 0.5; }
+  /* Stacked avatar pills — hidden for full review set */
+  #feat-avatars { display: none; }
 
   /* Index counter */
   #feat-counter {
@@ -2661,217 +2636,6 @@
 
     </div>
 
-    <!-- 3-column vertical scroll — 31 real Google reviews -->
-    <div class="testimonials-columns-wrap" aria-label="Customer reviews">
-
-      <!-- ── Column 1 (reviews 1–10, 30s) ── -->
-      <div class="testimonial-col">
-        <div class="testimonial-col-inner" style="--col-duration: 30s;">
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"I'm extremely happy with Jaden and his team. They consistently do an excellent job and take great care with every clean. Their attention to detail and reliability really set them apart. I've worked with many cleaning companies over the years for my Airbnb business, and Jaden and his team are by far one of the best."</p>
-            <div class="review-author"><div class="review-avatar">R</div><div><div class="review-name">Rebecca Sophia</div><div class="review-suburb">Google Review</div></div></div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"Honestly, finding a cleaner you can trust with your Airbnb is half the battle. So glad we found these guys. They're consistent, show up when they say they will, and the place is always properly cleaned. No stress."</p>
-            <div class="review-author"><div class="review-avatar">J</div><div><div class="review-name">Janelle Appert</div><div class="review-suburb">Google Review</div></div></div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"Gives me real peace of mind knowing the place is sorted properly after every guest. Never had an issue with cleanliness standards. Great team. 11/10"</p>
-            <div class="review-author"><div class="review-avatar">A</div><div><div class="review-name">Aljon Calimag</div><div class="review-suburb">Google Review</div></div></div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"Finally, a reliable Airbnb cleaning service! As a property manager, finding a consistent team was a nightmare. They coordinate seamlessly with my schedule and always leave the property spotless. My cleanliness ratings have gone up since using them."</p>
-            <div class="review-author"><div class="review-avatar">J</div><div><div class="review-name">Jay Ann Omictin</div><div class="review-suburb">Google Review</div></div></div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"Best Airbnb cleaning service we've ever hired! They handle turnovers effortlessly and the property always looks inviting. Professional, fast, and they communicate instantly. 10/10 recommend to any host!"</p>
-            <div class="review-author"><div class="review-avatar">D</div><div><div class="review-name">Daniel Ruiz Castro</div><div class="review-suburb">Google Review</div></div></div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"They have an impeccable cleaning service and their short-term accommodation has everything to guarantee excellent customer satisfaction. Five star."</p>
-            <div class="review-author"><div class="review-avatar">W</div><div><div class="review-name">Wilfried Riault</div><div class="review-suburb">Google Review</div></div></div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"We've used Sydney Phoenix Cleaning for our Airbnb in Rhodes for over a year, and they've been absolutely reliable. Every clean is detailed, on time, and guest-ready — linens, bathrooms, kitchen, everything spotless. Our Airbnb reviews consistently mention how clean the space is."</p>
-            <div class="review-author"><div class="review-avatar">A</div><div><div class="review-name">Alvina Shrestha</div><div class="review-suburb">Google Review</div></div></div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"Amazing service!!"</p>
-            <div class="review-author"><div class="review-avatar">E</div><div><div class="review-name">Edward Song</div><div class="review-suburb">Google Review</div></div></div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"Jaden &amp; Runbo have been amazing to work with and instrumental to the smooth running of my Airbnb business. They're passionate about doing a great job, open to feedback and always top notch in communication."</p>
-            <div class="review-author"><div class="review-avatar">T</div><div><div class="review-name">Tracy Wu</div><div class="review-suburb">Google Review</div></div></div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"Jayden and Runbo have been a great team. The property is always left spotless and well presented, with great attention to detail. They listen to feedback, take it on board, and consistently improve. Communication is excellent, and they share photos after each clean."</p>
-            <div class="review-author"><div class="review-avatar">S</div><div><div class="review-name">Shari P</div><div class="review-suburb">Google Review</div></div></div>
-          </div>
-          <!-- duplicate for seamless loop -->
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-        </div>
-      </div>
-
-      <!-- ── Column 2 (reviews 11–21, 38s, hidden on mobile) ── -->
-      <div class="testimonial-col">
-        <div class="testimonial-col-inner" style="--col-duration: 38s;">
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"Working with The Phoenix Team for the past 2 months has been a pleasure. Always friendly, reliable, and extremely professional. Their cleaning services are consistently excellent, with great attention to detail. They make the whole process easy and stress-free."</p>
-            <div class="review-author"><div class="review-avatar">T</div><div><div class="review-name">Tim Jian</div><div class="review-suburb">Google Review</div></div></div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"I've been using this team for a few months now across a couple of properties, and they've been fantastic. Jayden is always easy to communicate with and reliable. They're meticulous, thorough, take feedback well — exactly what a busy property manager needs."</p>
-            <div class="review-author"><div class="review-avatar">T</div><div><div class="review-name">Teri Lorigan</div><div class="review-suburb">Google Review</div></div></div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"Had a really positive experience with these guys. Overall really impressed with the quality of work and the professional service. I will definitely be recommending to my friends and family."</p>
-            <div class="review-author"><div class="review-avatar">A</div><div><div class="review-name">Auron Yi</div><div class="review-suburb">Google Review</div></div></div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"Phoenix cleaning is my go to cleaner! Fantastic price, excellent service, wonderful people. I've had issues with other cleaners but Phoenix cleaning was stress free."</p>
-            <div class="review-author"><div class="review-avatar">S</div><div><div class="review-name">Samuel Hui</div><div class="review-suburb">Google Review</div></div></div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"These cleaners are extremely professional, would recommend!"</p>
-            <div class="review-author"><div class="review-avatar">A</div><div><div class="review-name">Andersen</div><div class="review-suburb">Google Review</div></div></div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"Highly recommend their services, my bathrooms were spotless and they cleaned my Airbnb to perfection."</p>
-            <div class="review-author"><div class="review-avatar">Q</div><div><div class="review-name">Quandale Dingleton</div><div class="review-suburb">Google Review</div></div></div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"I've tried many other cleaners before, but none of them are as professional and value for money than the team at Phoenix. I don't normally write Google reviews, however after their job today, I truly felt it was necessary to praise the team's work!"</p>
-            <div class="review-author"><div class="review-avatar">J</div><div><div class="review-name">Jack Oswald</div><div class="review-suburb">Google Review</div></div></div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"I've been using Sydney Phoenix Cleaning for a while now for my properties and I couldn't be happier. The team is always punctual, professional, and thorough. What I appreciate most is their attention to detail and consistency."</p>
-            <div class="review-author"><div class="review-avatar">K</div><div><div class="review-name">Kritin Desai</div><div class="review-suburb">Google Review</div></div></div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"Sydney Phoenix Cleaning has been amazing for my Airbnb! Always reliable, professional, and they leave the place spotless every time. Guests consistently mention how clean and welcoming the property is — highly recommend!"</p>
-            <div class="review-author"><div class="review-avatar">C</div><div><div class="review-name">Connor Vernon</div><div class="review-suburb">Google Review</div></div></div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"I recently had Sydney Phoenix cleaning and I couldn't be happier with the results. The team arrived on time and worked efficiently paying attention to every detail. My home looked spotless and smelled fresh afterwards. Jaden was extremely professional."</p>
-            <div class="review-author"><div class="review-avatar">W</div><div><div class="review-name">Waylon</div><div class="review-suburb">Google Review</div></div></div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"While I was in the process of selling my house, we listed it on Airbnb. For the past few months, Sydney Phoenix Cleaning have been great to work with and have the best standard every single time. Would definitely recommend!"</p>
-            <div class="review-author"><div class="review-avatar">A</div><div><div class="review-name">Arissa</div><div class="review-suburb">Google Review</div></div></div>
-          </div>
-          <!-- duplicate -->
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-        </div>
-      </div>
-
-      <!-- ── Column 3 (reviews 22–31, 34s, hidden on tablet & mobile) ── -->
-      <div class="testimonial-col">
-        <div class="testimonial-col-inner" style="--col-duration: 34s;">
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"Well mannered and extremely accommodating staff, I never have any problems and always a great experience."</p>
-            <div class="review-author"><div class="review-avatar">S</div><div><div class="review-name">Stephen Spiliopoulos</div><div class="review-suburb">Google Review</div></div></div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"The cleaners are very thorough, would definitely recommend!"</p>
-            <div class="review-author"><div class="review-avatar">H</div><div><div class="review-name">H.L</div><div class="review-suburb">Google Review</div></div></div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"I have a few Airbnb properties that I hire them to clean regularly. Phoenix was by far the most reliable. They are always very punctual and you can tell how much they care by how well cleaned every place is. They will always go the extra mile to make us happy."</p>
-            <div class="review-author"><div class="review-avatar">H</div><div><div class="review-name">Henrik Tran</div><div class="review-suburb">Google Review</div></div></div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"The boys were incredible to work with. Attentive to detail, punctual, efficient and communicates everything appropriately where needed."</p>
-            <div class="review-author"><div class="review-avatar">P</div><div><div class="review-name">Patrick Wang</div><div class="review-suburb">Google Review</div></div></div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"They arrived right on time and did an amazing job, staff were friendly and polite and service is priced very fair as they clean really well!"</p>
-            <div class="review-author"><div class="review-avatar">A</div><div><div class="review-name">Andrew</div><div class="review-suburb">Google Review</div></div></div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"Great service! The team was on time, friendly, and left everything spotless. Highly recommend."</p>
-            <div class="review-author"><div class="review-avatar">D</div><div><div class="review-name">David Tetzlaff</div><div class="review-suburb">Google Review</div></div></div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"I run a Short Term Rental company and the boys at Sydney Phoenix Cleaning have been amazing to work with! Super reliable, easy to communicate with, and always leaves our places spotless. Honestly couldn't ask for a better cleaning team!"</p>
-            <div class="review-author"><div class="review-avatar">R</div><div><div class="review-name">Ryan Tang</div><div class="review-suburb">Google Review</div></div></div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"I manage properties interstate and Phoenix Cleaning have been fantastic to work with over the past 2 months."</p>
-            <div class="review-author"><div class="review-avatar">N</div><div><div class="review-name">Neelesh S.</div><div class="review-suburb">Google Review</div></div></div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"Have been busy so looked to hire some cleaners. This company was great, local, very easy to talk to and got the job done. Didn't miss a spot these guys."</p>
-            <div class="review-author"><div class="review-avatar">M</div><div><div class="review-name">Martin Quach</div><div class="review-suburb">Google Review</div></div></div>
-          </div>
-          <div class="review-card">
-            <div class="review-stars">★★★★★</div>
-            <p class="review-quote">"I manage my property from out of state. This service is my eyes and hands. They consistently send photos after each clean, note any maintenance issues, and confirm the lockbox code is set correctly. Total peace of mind."</p>
-            <div class="review-author"><div class="review-avatar">B</div><div><div class="review-name">Bruce</div><div class="review-suburb">Google Review</div></div></div>
-          </div>
-          <!-- duplicate -->
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-        </div>
-      </div>
-
-    </div>
   </section>
 
 
@@ -3178,31 +2942,37 @@
   <script>
   (function() {
     var REVIEWS = [
-      {
-        quote: "I'm extremely happy with Jaden and his team. They consistently do an excellent job and take great care with every clean. Their attention to detail and reliability really set them apart — by far one of the best.",
-        name: "Rebecca Sophia",
-        initial: "R"
-      },
-      {
-        quote: "Jaden & Runbo have been amazing to work with and instrumental to the smooth running of my Airbnb business. They're passionate about doing a great job, open to feedback and always top notch in communication.",
-        name: "Tracy Wu",
-        initial: "T"
-      },
-      {
-        quote: "We've used Sydney Phoenix Cleaning for our Airbnb in Rhodes for over a year, and they've been absolutely reliable. Every clean is detailed, on time, and guest-ready. Our guests consistently mention how clean the space is.",
-        name: "Alvina Shrestha",
-        initial: "A"
-      },
-      {
-        quote: "Jayden and Runbo have been a great team. The property is always left spotless and well presented, with great attention to detail. They listen to feedback, take it on board, and consistently improve. Communication is excellent.",
-        name: "Shari P",
-        initial: "S"
-      },
-      {
-        quote: "I run a Short Term Rental company and the boys at Sydney Phoenix Cleaning have been amazing to work with! Super reliable, easy to communicate with, and always leaves our places spotless. Couldn't ask for a better team.",
-        name: "Ryan Tang",
-        initial: "R"
-      }
+      { quote: "I'm extremely happy with Jaden and his team. They consistently do an excellent job and take great care with every clean. Their attention to detail and reliability really set them apart. I've worked with many cleaning companies over the years for my Airbnb business, and Jaden and his team are by far one of the best.", name: "Rebecca Sophia", initial: "R" },
+      { quote: "Honestly, finding a cleaner you can trust with your Airbnb is half the battle. So glad we found these guys. They're consistent, show up when they say they will, and the place is always properly cleaned. No stress.", name: "Janelle Appert", initial: "J" },
+      { quote: "Gives me real peace of mind knowing the place is sorted properly after every guest. Never had an issue with cleanliness standards. Great team. 11/10", name: "Aljon Calimag", initial: "A" },
+      { quote: "Finally, a reliable Airbnb cleaning service! As a property manager, finding a consistent team was a nightmare. They coordinate seamlessly with my schedule and always leave the property spotless. My cleanliness ratings have gone up since using them.", name: "Jay Ann Omictin", initial: "J" },
+      { quote: "Best Airbnb cleaning service we've ever hired! They handle turnovers effortlessly and the property always looks inviting. Professional, fast, and they communicate instantly. 10/10 recommend to any host!", name: "Daniel Ruiz Castro", initial: "D" },
+      { quote: "They have an impeccable cleaning service and their short-term accommodation has everything to guarantee excellent customer satisfaction. Five star.", name: "Wilfried Riault", initial: "W" },
+      { quote: "We've used Sydney Phoenix Cleaning for our Airbnb in Rhodes for over a year, and they've been absolutely reliable. Every clean is detailed, on time, and guest-ready — linens, bathrooms, kitchen, everything spotless. Our Airbnb reviews consistently mention how clean the space is.", name: "Alvina Shrestha", initial: "A" },
+      { quote: "Amazing service!!", name: "Edward Song", initial: "E" },
+      { quote: "Jaden & Runbo have been amazing to work with and instrumental to the smooth running of my Airbnb business. They're passionate about doing a great job, open to feedback and always top notch in communication.", name: "Tracy Wu", initial: "T" },
+      { quote: "Jayden and Runbo have been a great team. The property is always left spotless and well presented, with great attention to detail. They listen to feedback, take it on board, and consistently improve. Communication is excellent, and they share photos after each clean.", name: "Shari P", initial: "S" },
+      { quote: "Working with The Phoenix Team for the past 2 months has been a pleasure. Always friendly, reliable, and extremely professional. Their cleaning services are consistently excellent, with great attention to detail. They make the whole process easy and stress-free.", name: "Tim Jian", initial: "T" },
+      { quote: "I've been using this team for a few months now across a couple of properties, and they've been fantastic. Jayden is always easy to communicate with and reliable. They're meticulous, thorough, take feedback well — exactly what a busy property manager needs.", name: "Teri Lorigan", initial: "T" },
+      { quote: "Had a really positive experience with these guys. Overall really impressed with the quality of work and the professional service. I will definitely be recommending to my friends and family.", name: "Auron Yi", initial: "A" },
+      { quote: "Phoenix cleaning is my go to cleaner! Fantastic price, excellent service, wonderful people. I've had issues with other cleaners but Phoenix cleaning was stress free.", name: "Samuel Hui", initial: "S" },
+      { quote: "These cleaners are extremely professional, would recommend!", name: "Andersen", initial: "A" },
+      { quote: "Highly recommend their services, my bathrooms were spotless and they cleaned my Airbnb to perfection.", name: "Quandale Dingleton", initial: "Q" },
+      { quote: "I've tried many other cleaners before, but none of them are as professional and value for money than the team at Phoenix. I don't normally write Google reviews, however after their job today, I truly felt it was necessary to praise the team's work!", name: "Jack Oswald", initial: "J" },
+      { quote: "I've been using Sydney Phoenix Cleaning for a while now for my properties and I couldn't be happier. The team is always punctual, professional, and thorough. What I appreciate most is their attention to detail and consistency.", name: "Kritin Desai", initial: "K" },
+      { quote: "Sydney Phoenix Cleaning has been amazing for my Airbnb! Always reliable, professional, and they leave the place spotless every time. Guests consistently mention how clean and welcoming the property is — highly recommend!", name: "Connor Vernon", initial: "C" },
+      { quote: "I recently had Sydney Phoenix cleaning and I couldn't be happier with the results. The team arrived on time and worked efficiently paying attention to every detail. My home looked spotless and smelled fresh afterwards. Jaden was extremely professional.", name: "Waylon", initial: "W" },
+      { quote: "While I was in the process of selling my house, we listed it on Airbnb. For the past few months, Sydney Phoenix Cleaning have been great to work with and have the best standard every single time. Would definitely recommend!", name: "Arissa", initial: "A" },
+      { quote: "Well mannered and extremely accommodating staff, I never have any problems and always a great experience.", name: "Stephen Spiliopoulos", initial: "S" },
+      { quote: "The cleaners are very thorough, would definitely recommend!", name: "H.L", initial: "H" },
+      { quote: "I have a few Airbnb properties that I hire them to clean regularly. Phoenix was by far the most reliable. They are always very punctual and you can tell how much they care by how well cleaned every place is. They will always go the extra mile to make us happy.", name: "Henrik Tran", initial: "H" },
+      { quote: "The boys were incredible to work with. Attentive to detail, punctual, efficient and communicates everything appropriately where needed.", name: "Patrick Wang", initial: "P" },
+      { quote: "They arrived right on time and did an amazing job, staff were friendly and polite and service is priced very fair as they clean really well!", name: "Andrew", initial: "A" },
+      { quote: "Great service! The team was on time, friendly, and left everything spotless. Highly recommend.", name: "David Tetzlaff", initial: "D" },
+      { quote: "I run a Short Term Rental company and the boys at Sydney Phoenix Cleaning have been amazing to work with! Super reliable, easy to communicate with, and always leaves our places spotless. Honestly couldn't ask for a better cleaning team!", name: "Ryan Tang", initial: "R" },
+      { quote: "I manage properties interstate and Phoenix Cleaning have been fantastic to work with over the past 2 months.", name: "Neelesh S.", initial: "N" },
+      { quote: "Have been busy so looked to hire some cleaners. This company was great, local, very easy to talk to and got the job done. Didn't miss a spot these guys.", name: "Martin Quach", initial: "M" },
+      { quote: "I manage my property from out of state. This service is my eyes and hands. They consistently send photos after each clean, note any maintenance issues, and confirm the lockbox code is set correctly. Total peace of mind.", name: "Bruce", initial: "B" }
     ];
 
     var activeIndex = 0;
