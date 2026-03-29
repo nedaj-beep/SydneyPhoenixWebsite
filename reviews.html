@@ -2481,6 +2481,86 @@
   #feat-testimonial.hovered #feat-hint { opacity: 0; }
   @media (max-width: 640px) { #feat-hint { display: none; } }
 
+  /* ─── Gallery Strip ──────────────────────────────────── */
+  #gallery-strip {
+    background: #0d0d0d;
+    padding: 72px 0;
+    overflow: hidden;
+  }
+  #gallery-strip-heading {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 0 24px;
+  }
+  #gallery-strip-heading .eyebrow {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 10px;
+  }
+  #gallery-strip-heading h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin: 0;
+  }
+  .gallery-track-wrap {
+    -webkit-mask: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+    mask: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+    width: 100%;
+    overflow: hidden;
+  }
+  .gallery-track {
+    display: flex;
+    gap: 16px;
+    width: max-content;
+    animation: gallery-scroll 40s linear infinite;
+  }
+  .gallery-track:hover { animation-play-state: paused; }
+  @keyframes gallery-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .gallery-item {
+    flex-shrink: 0;
+    width: 280px;
+    height: 210px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+  }
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                filter 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .gallery-item:hover img {
+    transform: scale(1.06);
+    filter: brightness(1.12);
+  }
+  .gallery-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  @media (max-width: 640px) {
+    .gallery-item { width: 220px; height: 165px; }
+    #gallery-strip { padding: 48px 0; }
+  }
+
   </style>
 </head>
 <body>
@@ -2661,6 +2741,58 @@
           </a>
           <div class="cta-phone-label">Or call us directly</div>
         <a href="tel:+61490866278" class="cta-phone">0490 866 278</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       GALLERY STRIP — Real job photos
+  ══════════════════════════════════════════════════════ -->
+  <section id="gallery-strip" aria-label="Photo gallery of our cleaning work">
+    <div id="gallery-strip-heading">
+      <span class="eyebrow">Our Work</span>
+      <h2>Real cleans. Real results.</h2>
+    </div>
+    <div class="gallery-track-wrap">
+      <div class="gallery-track" id="gallery-track">
+        <!-- first set -->
+        <div class="gallery-item"><img src="PhoenixImages/DSC00944.jpg" alt="Clean property" loading="lazy" /></div>
+        <div class="gallery-item"><img src="PhoenixImages/DSC01013.jpg" alt="Clean property" loading="lazy" /></div>
+        <div class="gallery-item"><img src="PhoenixImages/DSC01102.jpg" alt="Clean property" loading="lazy" /></div>
+        <div class="gallery-item"><img src="PhoenixImages/DSC01109.jpg" alt="Clean property" loading="lazy" /></div>
+        <div class="gallery-item"><img src="PhoenixImages/DSC01200.jpg" alt="Clean property" loading="lazy" /></div>
+        <div class="gallery-item"><img src="PhoenixImages/IMG-20251109-WA0042.jpg" alt="Clean property" loading="lazy" /></div>
+        <div class="gallery-item"><img src="PhoenixImages/IMG-20251109-WA0162.jpg" alt="Clean property" loading="lazy" /></div>
+        <div class="gallery-item"><img src="PhoenixImages/IMG-20251109-WA0170.jpg" alt="Clean property" loading="lazy" /></div>
+        <div class="gallery-item"><img src="PhoenixImages/IMG-20251110-WA0051.jpg" alt="Clean property" loading="lazy" /></div>
+        <div class="gallery-item"><img src="PhoenixImages/IMG-20251110-WA0201.jpg" alt="Clean property" loading="lazy" /></div>
+        <div class="gallery-item"><img src="PhoenixImages/IMG-20251110-WA0208.jpg" alt="Clean property" loading="lazy" /></div>
+        <div class="gallery-item"><img src="PhoenixImages/IMG-20251111-WA0015.jpg" alt="Clean property" loading="lazy" /></div>
+        <div class="gallery-item"><img src="PhoenixImages/6E81D367-4B9C-4455-8AA3-3FCEAA5AE69E_1_105_c.jpeg" alt="Clean property" loading="lazy" /></div>
+        <div class="gallery-item"><img src="PhoenixImages/823E7251-0F1F-4EFC-AEE0-BEF02133258A_1_105_c.jpeg" alt="Clean property" loading="lazy" /></div>
+        <div class="gallery-item"><img src="PhoenixImages/87B6F517-7879-4B08-9CC7-8F2BFE082A60_1_105_c.jpeg" alt="Clean property" loading="lazy" /></div>
+        <div class="gallery-item"><img src="PhoenixImages/E9DBCCDC-2C90-402C-8ECA-E4D0BFBA9BFD_1_105_c.jpeg" alt="Clean property" loading="lazy" /></div>
+        <div class="gallery-item"><img src="PhoenixImages/FCC0D545-CA85-4236-A190-5AFA790ED196_1_105_c.jpeg" alt="Clean property" loading="lazy" /></div>
+        <div class="gallery-item"><img src="PhoenixImages/1000032970 (1).jpg" alt="Clean property" loading="lazy" /></div>
+        <!-- duplicate set for seamless loop -->
+        <div class="gallery-item"><img src="PhoenixImages/DSC00944.jpg" alt="Clean property" loading="lazy" /></div>
+        <div class="gallery-item"><img src="PhoenixImages/DSC01013.jpg" alt="Clean property" loading="lazy" /></div>
+        <div class="gallery-item"><img src="PhoenixImages/DSC01102.jpg" alt="Clean property" loading="lazy" /></div>
+        <div class="gallery-item"><img src="PhoenixImages/DSC01109.jpg" alt="Clean property" loading="lazy" /></div>
+        <div class="gallery-item"><img src="PhoenixImages/DSC01200.jpg" alt="Clean property" loading="lazy" /></div>
+        <div class="gallery-item"><img src="PhoenixImages/IMG-20251109-WA0042.jpg" alt="Clean property" loading="lazy" /></div>
+        <div class="gallery-item"><img src="PhoenixImages/IMG-20251109-WA0162.jpg" alt="Clean property" loading="lazy" /></div>
+        <div class="gallery-item"><img src="PhoenixImages/IMG-20251109-WA0170.jpg" alt="Clean property" loading="lazy" /></div>
+        <div class="gallery-item"><img src="PhoenixImages/IMG-20251110-WA0051.jpg" alt="Clean property" loading="lazy" /></div>
+        <div class="gallery-item"><img src="PhoenixImages/IMG-20251110-WA0201.jpg" alt="Clean property" loading="lazy" /></div>
+        <div class="gallery-item"><img src="PhoenixImages/IMG-20251110-WA0208.jpg" alt="Clean property" loading="lazy" /></div>
+        <div class="gallery-item"><img src="PhoenixImages/IMG-20251111-WA0015.jpg" alt="Clean property" loading="lazy" /></div>
+        <div class="gallery-item"><img src="PhoenixImages/6E81D367-4B9C-4455-8AA3-3FCEAA5AE69E_1_105_c.jpeg" alt="Clean property" loading="lazy" /></div>
+        <div class="gallery-item"><img src="PhoenixImages/823E7251-0F1F-4EFC-AEE0-BEF02133258A_1_105_c.jpeg" alt="Clean property" loading="lazy" /></div>
+        <div class="gallery-item"><img src="PhoenixImages/87B6F517-7879-4B08-9CC7-8F2BFE082A60_1_105_c.jpeg" alt="Clean property" loading="lazy" /></div>
+        <div class="gallery-item"><img src="PhoenixImages/E9DBCCDC-2C90-402C-8ECA-E4D0BFBA9BFD_1_105_c.jpeg" alt="Clean property" loading="lazy" /></div>
+        <div class="gallery-item"><img src="PhoenixImages/FCC0D545-CA85-4236-A190-5AFA790ED196_1_105_c.jpeg" alt="Clean property" loading="lazy" /></div>
+        <div class="gallery-item"><img src="PhoenixImages/1000032970 (1).jpg" alt="Clean property" loading="lazy" /></div>
       </div>
     </div>
   </section>
