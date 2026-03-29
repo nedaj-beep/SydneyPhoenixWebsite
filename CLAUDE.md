@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+You are a senior UI designer and frontend developer. Build premium interfaces. Use subtle animations, proper spacing and visual hierarchy. No emoji icons. No inline styles. No generic gradients.
+
+Claude Code to behave the way I want. Each feature does one thing, the code is easy to follow, and the app is easy to run locally and depoloy
+
 ---
 
 # Frontend Website Rules
@@ -67,6 +71,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Never use `git add -A` — stage specific files only (`index.html`, `services.html`, `pricing.html`, `reviews.html`, `faq.html`, `brand_assets`, etc.).
 - Workflow: `git add <files>` → `git commit -m "..."` → wait for user confirmation → `git push origin main`
 - Every push to GitHub automatically syncs to the live site.
+
+## Checkpointing & Context Preservation
+- **After every major step**, create a git commit as a checkpoint (even without push). This preserves progress in case of context window compression.
+- **After a `/compact`** or any context compression event, immediately read this CLAUDE.md and the most recent git log (`git log --oneline -10`) to re-orient before continuing work.
+- A "major step" is: completing a visible UI section, fixing a significant bug, restructuring layout, or any change spanning multiple files.
+- Checkpoint commit message format: `checkpoint: <what was just completed>` — e.g., `checkpoint: navbar layout restructure complete`.
 
 ## This Project: Sydney Phoenix Cleaning Website
 - **Site:** Multi-page marketing site for Sydney Phoenix Cleaning, a cleaning services business

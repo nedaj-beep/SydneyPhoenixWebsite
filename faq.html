@@ -98,52 +98,65 @@
       100% { transform: translateX(-50%); }
     }
 
-    /* ─── 2. NAVBAR (Floating Pill — Component 3) ─────── */
+    /* ─── 2. NAVBAR (Full-Width Bar) ─────── */
     #navbar {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: transparent;
-      padding: 10px 20px;
-      pointer-events: none; /* pass-through on padding area */
-      transition: padding 0.3s ease;
+      background: #ffffff;
+      border-bottom: 1px solid rgba(17,17,17,0.07);
+      box-shadow: 0 1px 8px rgba(17,17,17,0.05);
+      padding: 0;
+      pointer-events: all;
+      transition: box-shadow 0.35s ease;
     }
 
     .nav-inner {
-      max-width: 860px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 0 8px 0 20px;
-      height: 62px;
-      display: flex;
+      padding: 0 32px;
+      height: 90px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
       align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-radius: 100px;
-      border: 1px solid rgba(17,17,17,0.08);
-      box-shadow: 0 4px 24px rgba(17,17,17,0.09), 0 1px 4px rgba(17,17,17,0.05);
-      pointer-events: all;
-      transition: box-shadow 0.3s ease, background 0.3s ease;
+      gap: 0;
+      background: transparent;
     }
 
-    #navbar.scrolled .nav-inner {
-      box-shadow: 0 8px 36px rgba(17,17,17,0.14), 0 2px 8px rgba(232,52,42,0.07);
-      background: rgba(255,255,255,0.99);
+    #navbar.scrolled {
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(17,17,17,0.08);
+      box-shadow: 0 2px 16px rgba(17,17,17,0.09), 0 1px 4px rgba(232,52,42,0.06);
+    }
+
+    .nav-logo {
+      overflow: hidden;
+      height: 90px;
+      display: flex;
+      align-items: center;
     }
 
     .nav-logo img {
-      height: 44px;
+      height: 116px;
       width: auto;
       display: block;
+      flex-shrink: 0;
+      filter: url(#remove-white);
     }
 
     /* ── Glow Menu (Component 1) ── */
+    nav[aria-label="Main navigation"] {
+      justify-self: center;
+      display: flex;
+      align-items: center;
+    }
+
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 32px;
       list-style: none;
       margin: 0;
       padding: 0;
@@ -2286,6 +2299,18 @@
   </style>
 </head>
 <body>
+  <!-- Hidden SVG filter: removes white/cream background from logo PNG -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none;position:absolute;width:0;height:0">
+    <defs>
+      <filter id="remove-white" color-interpolation-filters="sRGB">
+        <feColorMatrix type="matrix"
+          values="1 0 0 0 0
+                  0 1 0 0 0
+                  0 0 1 0 0
+                  -1 -1 -1 2.7 0"/>
+      </filter>
+    </defs>
+  </svg>
 
   <!-- ══════════════════════════════════════════════════════
        1. ANNOUNCEMENT BAR
@@ -2349,11 +2374,11 @@
               <div class="nav-link-back">FAQ</div>
             </a>
           </li>
-          <li>
-            <a href="contact.html" class="nav-book-btn">Book Now</a>
-          </li>
         </ul>
       </nav>
+
+      <!-- Book Now CTA — right column -->
+      <a href="contact.html" class="nav-book-btn">Book Now</a>
 
       <!-- Hamburger (mobile) -->
       <button class="hamburger" id="hamburger-btn" aria-label="Toggle mobile menu" aria-expanded="false">
@@ -2473,47 +2498,6 @@
           </a>
           <div class="cta-phone-label">Or call us directly</div>
         <a href="tel:+61490866278" class="cta-phone">0490 866 278</a>
-      </div>
-    </div>
-          </div>
-
-          <div class="contact-form-panel">
-            <form id="enquiry-form" onsubmit="handleEnquirySubmit(event)" novalidate>
-              <div class="form-field">
-                <label for="f-name">Name</label>
-                <input type="text" id="f-name" name="name" placeholder="Your full name" required />
-              </div>
-              <div class="form-field">
-                <label for="f-email">Email</label>
-                <input type="email" id="f-email" name="email" placeholder="you@example.com" required />
-              </div>
-              <div class="form-field">
-                <label for="f-phone">Phone</label>
-                <input type="tel" id="f-phone" name="phone" placeholder="04XX XXX XXX" />
-              </div>
-              <div class="form-field">
-                <label for="f-service">Service</label>
-                <select id="f-service" name="service">
-                  <option value="">Select a service...</option>
-                  <option>Turnover Clean</option>
-                  <option>Deep Clean</option>
-                  <option>Restock &amp; Linen</option>
-                  <option>Other</option>
-                </select>
-              </div>
-              <div class="form-field">
-                <label for="f-message">Message</label>
-                <textarea id="f-message" name="message" rows="3" placeholder="Tell us about your property..."></textarea>
-              </div>
-              <button type="submit" class="form-submit-btn">Send Enquiry &#8594;</button>
-            </form>
-            <div id="form-success" style="display:none;" class="form-success-msg" aria-live="polite">
-              <div class="success-icon">&#10003;</div>
-              <strong>Enquiry sent!</strong>
-              <p>Thanks! We'll be in touch within 1 business day.</p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
