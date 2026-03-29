@@ -24,7 +24,7 @@
     "description": "Sydney's #1 Airbnb cleaning service — same-day turnover cleans, deep cleans, linen and restocking.",
     "url": "https://sydneyphoenixcleaning.com.au",
     "telephone": "+61 490 866 278",
-    "email": "hello@sydneyphoenixcleaning.com.au",
+    "email": "sydneyphoenixcleaning@gmail.com",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Sydney",
@@ -2292,6 +2292,220 @@
       .contact-card-section { padding: 56px 16px 72px; }
     }
 
+  /* ── Featured Testimonial Widget ──────────────────────── */
+  #feat-testimonial {
+    position: relative;
+    max-width: 660px;
+    margin: 0 auto 64px;
+    padding: 64px 48px 56px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.08);
+    cursor: none;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  @media (max-width: 640px) {
+    #feat-testimonial { padding: 48px 28px 44px; margin-bottom: 48px; cursor: auto; border-radius: 14px; }
+  }
+
+  /* Custom cursor */
+  #feat-cursor {
+    position: absolute;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 50;
+    mix-blend-mode: difference;
+  }
+  #feat-cursor-inner {
+    width: 0; height: 0;
+    border-radius: 50%;
+    background: #111;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    transition: width 0.25s cubic-bezier(0.34,1.56,0.64,1), height 0.25s cubic-bezier(0.34,1.56,0.64,1), opacity 0.2s ease;
+    opacity: 0;
+  }
+  #feat-cursor-inner span {
+    color: #fff;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.15s ease 0.1s;
+  }
+  #feat-testimonial.hovered #feat-cursor-inner {
+    width: 80px; height: 80px; opacity: 1;
+  }
+  #feat-testimonial.hovered #feat-cursor-inner span { opacity: 1; }
+
+  /* Stacked avatar pills */
+  #feat-avatars {
+    position: absolute;
+    top: 28px; left: 40px;
+    display: flex;
+    opacity: 0.6;
+  }
+  @media (max-width: 640px) { #feat-avatars { left: 24px; } }
+  .feat-avatar-thumb {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background: #e8e4df;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 700;
+    color: #555;
+    margin-left: -7px;
+    overflow: hidden;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .feat-avatar-thumb:first-child { margin-left: 0; }
+  .feat-avatar-thumb.active {
+    box-shadow: 0 0 0 1.5px #E8342A, 0 0 0 3px rgba(232,52,42,0.15);
+    opacity: 1;
+    filter: none;
+  }
+  .feat-avatar-thumb.inactive { filter: grayscale(1); opacity: 0.5; }
+
+  /* Index counter */
+  #feat-counter {
+    position: absolute;
+    top: 28px; right: 40px;
+    display: flex; align-items: baseline; gap: 3px;
+    font-family: 'DM Mono', 'Courier New', monospace;
+    font-size: 11px;
+  }
+  @media (max-width: 640px) { #feat-counter { right: 24px; } }
+  #feat-current {
+    font-size: 26px;
+    font-weight: 300;
+    color: #111;
+    line-height: 1;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  #feat-counter .sep, #feat-counter .total { color: #999; }
+
+  /* Quote */
+  #feat-quote {
+    margin: 0 0 48px;
+    font-size: clamp(18px, 2.4vw, 23px);
+    font-weight: 300;
+    line-height: 1.65;
+    letter-spacing: -0.01em;
+    color: #111;
+    min-height: 120px;
+  }
+  #feat-quote.exiting {
+    opacity: 0;
+    transform: translateY(-6px);
+    filter: blur(4px);
+    transition: opacity 0.2s ease, transform 0.2s ease, filter 0.2s ease;
+  }
+  #feat-quote.entering { transition: none; }
+
+  @keyframes feat-word-in {
+    from { opacity: 0; transform: translateY(14px); filter: blur(8px); }
+    to   { opacity: 1; transform: translateY(0);    filter: blur(0px); }
+  }
+  .feat-word {
+    display: inline-block;
+    margin-right: 0.28em;
+    animation: feat-word-in 0.38s cubic-bezier(0.22,1,0.36,1) both;
+  }
+
+  /* Author */
+  #feat-author {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  #feat-avatar-main {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: #E8342A;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+    position: relative;
+    transition: opacity 0.3s ease;
+  }
+  #feat-avatar-main::before {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    border: 1px solid rgba(232,52,42,0.3);
+    pointer-events: none;
+  }
+  #feat-author-info {
+    position: relative;
+    padding-left: 16px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  #feat-author-info::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 1px;
+    background: #E8342A;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.35s cubic-bezier(0.22,1,0.36,1) 0.1s;
+  }
+  #feat-author-info.line-in::before { transform: scaleY(1); }
+  #feat-author-name {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #111;
+    letter-spacing: 0.01em;
+  }
+  #feat-author-role {
+    display: block;
+    font-size: 11px;
+    color: #888;
+    margin-top: 2px;
+    font-family: 'DM Mono', 'Courier New', monospace;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* Progress bar */
+  #feat-progress {
+    margin-top: 48px;
+    height: 1px;
+    background: rgba(17,17,17,0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  #feat-progress-fill {
+    position: absolute;
+    inset-y: 0; left: 0;
+    background: #E8342A;
+    width: 20%;
+    transition: width 0.5s cubic-bezier(0.22,1,0.36,1);
+  }
+
+  /* Hint */
+  #feat-hint {
+    position: absolute;
+    bottom: 20px; left: 40px;
+    font-size: 10px;
+    color: #aaa;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-family: 'DM Mono', 'Courier New', monospace;
+    transition: opacity 0.3s ease;
+    opacity: 0.2;
+  }
+  #feat-testimonial.hovered #feat-hint { opacity: 0; }
+  @media (max-width: 640px) { #feat-hint { display: none; } }
+
   </style>
 </head>
 <body>
@@ -2405,6 +2619,46 @@
       <div class="section-eyebrow">What Hosts Say</div>
       <h2 class="section-title" id="reviews-title">Sydney Hosts Love Us</h2>
       <p class="section-subtitle">Real reviews from real Airbnb hosts across Sydney.</p>
+    </div>
+
+    <!-- Featured Testimonial Widget -->
+    <div id="feat-testimonial" role="region" aria-label="Featured customer testimonial">
+
+      <!-- Custom magnetic cursor (desktop only) -->
+      <div id="feat-cursor" aria-hidden="true">
+        <div id="feat-cursor-inner"><span>Next</span></div>
+      </div>
+
+      <!-- Stacked avatar thumbnails -->
+      <div id="feat-avatars" aria-hidden="true"></div>
+
+      <!-- Index counter -->
+      <div id="feat-counter" aria-hidden="true">
+        <span id="feat-current">01</span>
+        <span class="sep">&nbsp;/&nbsp;</span>
+        <span class="total" id="feat-total">05</span>
+      </div>
+
+      <!-- Quote -->
+      <blockquote id="feat-quote"></blockquote>
+
+      <!-- Author -->
+      <div id="feat-author">
+        <div id="feat-avatar-main" aria-hidden="true"></div>
+        <div id="feat-author-info">
+          <span id="feat-author-name"></span>
+          <span id="feat-author-role">Google Review</span>
+        </div>
+      </div>
+
+      <!-- Progress bar -->
+      <div id="feat-progress" aria-hidden="true">
+        <div id="feat-progress-fill"></div>
+      </div>
+
+      <!-- Click hint -->
+      <div id="feat-hint" aria-hidden="true">Click anywhere</div>
+
     </div>
 
     <!-- 3-column vertical scroll — 31 real Google reviews -->
@@ -2620,83 +2874,6 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════════════════════
-       11. SERVICE AREAS
-  ══════════════════════════════════════════════════════ -->
-  <section id="areas" aria-labelledby="areas-title">
-    <div class="section-header">
-      <div class="section-eyebrow">Coverage</div>
-      <h2 class="section-title" id="areas-title">We Clean Across Sydney</h2>
-      <p class="section-subtitle">Serving hosts from Bondi to the North Shore — same-day availability across the inner city and beyond.</p>
-    </div>
-
-    <div class="areas-pills" role="list">
-      <span class="area-pill" role="listitem">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Bondi
-      </span>
-      <span class="area-pill" role="listitem">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Surry Hills
-      </span>
-      <span class="area-pill" role="listitem">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Newtown
-      </span>
-      <span class="area-pill" role="listitem">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Mosman
-      </span>
-      <span class="area-pill" role="listitem">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Manly
-      </span>
-      <span class="area-pill" role="listitem">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Pyrmont
-      </span>
-      <span class="area-pill" role="listitem">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Potts Point
-      </span>
-      <span class="area-pill" role="listitem">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Coogee
-      </span>
-      <span class="area-pill" role="listitem">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Randwick
-      </span>
-      <span class="area-pill" role="listitem">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        North Sydney
-      </span>
-      <span class="area-pill" role="listitem">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Chatswood
-      </span>
-      <span class="area-pill" role="listitem">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Glebe
-      </span>
-      <span class="area-pill" role="listitem">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Balmain
-      </span>
-      <span class="area-pill" role="listitem">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Paddington
-      </span>
-      <span class="area-pill" role="listitem">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        The Rocks
-      </span>
-      <span class="area-pill" role="listitem">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#E8342A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Neutral Bay
-      </span>
-    </div>
-  </section>
 
   <!-- ══════════════════════════════════════════════════════
        13. FINAL CTA
@@ -2746,7 +2923,7 @@
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
           </a>
           <!-- Email -->
-          <a href="mailto:hello@sydneyphoenixcleaning.com.au" class="social-icon" aria-label="Email us">
+          <a href="mailto:sydneyphoenixcleaning@gmail.com" class="social-icon" aria-label="Email us">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           </a>
         </div>
@@ -2776,7 +2953,7 @@
         </div>
         <div class="footer-contact-item">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          <a href="mailto:hello@sydneyphoenixcleaning.com.au">hello@sydneyphoenixcleaning.com.au</a>
+          <a href="mailto:sydneyphoenixcleaning@gmail.com">sydneyphoenixcleaning@gmail.com</a>
         </div>
         <div class="footer-contact-item">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -2997,8 +3174,170 @@
     });
   </script>
 
-</body>
-</html>
+  <!-- ── Featured Testimonial Widget ────────────────────── -->
+  <script>
+  (function() {
+    var REVIEWS = [
+      {
+        quote: "I'm extremely happy with Jaden and his team. They consistently do an excellent job and take great care with every clean. Their attention to detail and reliability really set them apart — by far one of the best.",
+        name: "Rebecca Sophia",
+        initial: "R"
+      },
+      {
+        quote: "Jaden & Runbo have been amazing to work with and instrumental to the smooth running of my Airbnb business. They're passionate about doing a great job, open to feedback and always top notch in communication.",
+        name: "Tracy Wu",
+        initial: "T"
+      },
+      {
+        quote: "We've used Sydney Phoenix Cleaning for our Airbnb in Rhodes for over a year, and they've been absolutely reliable. Every clean is detailed, on time, and guest-ready. Our guests consistently mention how clean the space is.",
+        name: "Alvina Shrestha",
+        initial: "A"
+      },
+      {
+        quote: "Jayden and Runbo have been a great team. The property is always left spotless and well presented, with great attention to detail. They listen to feedback, take it on board, and consistently improve. Communication is excellent.",
+        name: "Shari P",
+        initial: "S"
+      },
+      {
+        quote: "I run a Short Term Rental company and the boys at Sydney Phoenix Cleaning have been amazing to work with! Super reliable, easy to communicate with, and always leaves our places spotless. Couldn't ask for a better team.",
+        name: "Ryan Tang",
+        initial: "R"
+      }
+    ];
+
+    var activeIndex = 0;
+    var isHovered = false;
+    var transitioning = false;
+
+    var widget      = document.getElementById('feat-testimonial');
+    var cursor      = document.getElementById('feat-cursor');
+    var avatarsEl   = document.getElementById('feat-avatars');
+    var currentEl   = document.getElementById('feat-current');
+    var totalEl     = document.getElementById('feat-total');
+    var quoteEl     = document.getElementById('feat-quote');
+    var avatarMain  = document.getElementById('feat-avatar-main');
+    var nameEl      = document.getElementById('feat-author-name');
+    var infoEl      = document.getElementById('feat-author-info');
+    var progressFill = document.getElementById('feat-progress-fill');
+    if (!widget) return;
+
+    totalEl.textContent = String(REVIEWS.length).padStart(2, '0');
+
+    // Build stacked avatar thumbnails
+    REVIEWS.forEach(function(r, i) {
+      var el = document.createElement('div');
+      el.className = 'feat-avatar-thumb ' + (i === 0 ? 'active' : 'inactive');
+      el.textContent = r.initial;
+      avatarsEl.appendChild(el);
+    });
+
+    function renderQuote(idx, animate) {
+      var words = REVIEWS[idx].quote.split(' ');
+      quoteEl.innerHTML = '';
+      words.forEach(function(w, i) {
+        var span = document.createElement('span');
+        span.textContent = w;
+        if (animate) {
+          span.className = 'feat-word';
+          span.style.animationDelay = (i * 0.03) + 's';
+        } else {
+          span.style.cssText = 'display:inline-block;margin-right:0.28em;';
+        }
+        quoteEl.appendChild(span);
+      });
+    }
+
+    function updateCounter(idx) {
+      currentEl.style.cssText = 'opacity:0;transform:translateY(8px);';
+      setTimeout(function() {
+        currentEl.textContent = String(idx + 1).padStart(2, '0');
+        currentEl.style.cssText = 'transition:opacity 0.3s ease,transform 0.3s ease;opacity:1;transform:translateY(0);';
+      }, 160);
+    }
+
+    function updateAvatars(idx) {
+      var thumbs = document.querySelectorAll('.feat-avatar-thumb');
+      thumbs.forEach(function(el, i) {
+        el.className = 'feat-avatar-thumb ' + (i === idx ? 'active' : 'inactive');
+      });
+    }
+
+    function updateProgress(idx) {
+      progressFill.style.width = ((idx + 1) / REVIEWS.length * 100) + '%';
+    }
+
+    function updateAuthor(idx, animate) {
+      var r = REVIEWS[idx];
+      if (animate) {
+        infoEl.classList.remove('line-in');
+        avatarMain.style.opacity = '0';
+        infoEl.style.cssText = 'opacity:0;transform:translateX(-8px);';
+        setTimeout(function() {
+          avatarMain.textContent = r.initial;
+          nameEl.textContent = r.name;
+          avatarMain.style.cssText = 'transition:opacity 0.35s ease;opacity:1;';
+          infoEl.style.cssText = 'transition:opacity 0.3s ease,transform 0.3s ease;opacity:1;transform:translateX(0);';
+          setTimeout(function() { infoEl.classList.add('line-in'); }, 50);
+        }, 200);
+      } else {
+        avatarMain.textContent = r.initial;
+        nameEl.textContent = r.name;
+        setTimeout(function() { infoEl.classList.add('line-in'); }, 100);
+      }
+    }
+
+    function advance() {
+      if (transitioning) return;
+      transitioning = true;
+      var next = (activeIndex + 1) % REVIEWS.length;
+      quoteEl.classList.add('exiting');
+      setTimeout(function() {
+        activeIndex = next;
+        quoteEl.classList.remove('exiting');
+        quoteEl.classList.add('entering');
+        renderQuote(next, true);
+        updateCounter(next);
+        updateAvatars(next);
+        updateProgress(next);
+        updateAuthor(next, true);
+        requestAnimationFrame(function() {
+          quoteEl.classList.remove('entering');
+          transitioning = false;
+        });
+      }, 220);
+    }
+
+    renderQuote(0, false);
+    updateProgress(0);
+    updateAuthor(0, false);
+
+    widget.addEventListener('click', advance);
+
+    // Spring cursor (desktop only)
+    if (window.matchMedia('(pointer: fine)').matches) {
+      var curX = 0, curY = 0, tarX = 0, tarY = 0;
+      var K = 0.14;
+      function springTick() {
+        curX += (tarX - curX) * K;
+        curY += (tarY - curY) * K;
+        cursor.style.transform = 'translate(' + (curX - 40) + 'px,' + (curY - 40) + 'px)';
+        requestAnimationFrame(springTick);
+      }
+      springTick();
+      widget.addEventListener('mousemove', function(e) {
+        var rect = widget.getBoundingClientRect();
+        tarX = e.clientX - rect.left;
+        tarY = e.clientY - rect.top;
+      });
+      widget.addEventListener('mouseenter', function() {
+        widget.classList.add('hovered');
+      });
+      widget.addEventListener('mouseleave', function() {
+        widget.classList.remove('hovered');
+      });
+    }
+  })();
+  </script>
 
 </body>
 </html>
