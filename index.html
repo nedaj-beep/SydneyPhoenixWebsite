@@ -3000,17 +3000,20 @@
       deep:     { studio: 149, '1': 189, '2': 229, '3': 279, '4': 339 }
     };
 
-    const SERVICE_LABELS = { turnover: 'Turnover Clean', deep: 'Deep Clean' };
-    const BEDROOM_LABELS = { studio: 'Studio', '1': '1 Bedroom', '2': '2 Bedrooms', '3': '3 Bedrooms', '4': '4+ Bedrooms' };
+    const SERVICE_LABELS  = { turnover: 'Turnover Clean', deep: 'Deep Clean' };
+    const BEDROOM_LABELS  = { studio: 'Studio', '1': '1 Bedroom', '2': '2 Bedrooms', '3': '3 Bedrooms', '4': '4+ Bedrooms' };
+    const BATHROOM_LABELS = { '1': '1 Bathroom', '2': '2 Bathrooms', '3': '3+ Bathrooms' };
+    const BATHROOM_ADD    = { '1': 0, '2': 20, '3': 35 };
 
     function updatePrice() {
       const bedrooms  = document.getElementById('calc-bedrooms').value;
+      const bathrooms = document.getElementById('calc-bathrooms').value;
       const service   = document.getElementById('calc-service').value;
       const restock   = document.getElementById('calc-restock').checked;
       const priceEl   = document.getElementById('calc-price');
       const noteEl    = document.getElementById('calc-price-note');
 
-      let base = PRICES[service][bedrooms];
+      let base = PRICES[service][bedrooms] + BATHROOM_ADD[bathrooms];
       if (restock) base += 49;
       const low  = Math.round(base * 0.9  / 5) * 5;
       const high = Math.round(base * 1.15 / 5) * 5;
@@ -3025,7 +3028,7 @@
       }, 120);
 
       const restockNote = restock ? ' + Restock' : '';
-      noteEl.textContent = SERVICE_LABELS[service] + ' · ' + BEDROOM_LABELS[bedrooms] + restockNote;
+      noteEl.textContent = SERVICE_LABELS[service] + ' · ' + BEDROOM_LABELS[bedrooms] + ' · ' + BATHROOM_LABELS[bathrooms] + restockNote;
     }
 
     document.getElementById('calc-bedrooms').addEventListener('change', updatePrice);
